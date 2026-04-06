@@ -1,0 +1,4 @@
+/* Mintlify renders some OpenAPI prose examples as raw Shiki blocks with inline white backgrounds. */
+html.dark pre.shiki {
+  background-color: var(--shiki-dark-bg) !important;
+}
