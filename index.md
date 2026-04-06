@@ -1,9 +1,11 @@
 ---
 title: "Fintoro Public API"
 sidebarTitle: "Úvod"
+description: "REST API na integráciu Fintoro fakturácie, CRM a skladového systému do systémov tretích strán."
 ---
 
 Fintoro Public API je REST API na integráciu Fintoro fakturácie, CRM a skladového systému do systémov tretích strán. Je určené pre partnerov, interné integračné tímy aj zákaznícke implementácie, ktoré potrebujú spoľahlivo čítať a zapisovať údaje z Fintoro a zároveň reagovať na zmeny cez odchádzajúce webhooky.
+
 Použite ho na prácu s klientmi, dodávateľmi, CRM, skladmi, dokladmi, odbermi webhookov a číselníkovými údajmi nad jednou produkčnou alebo sandboxovou firmou.
 
 Produkčné aj sandboxové firmy používajú rovnakú základnú URL `https://app.fintoro.sk/api/public/v1`. Firemný kontext neurčuje iný host ani iná cesta, ale bearer token firmy, pre ktorú bol token vydaný.
