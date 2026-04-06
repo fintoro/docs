@@ -59,7 +59,247 @@
                 "openapi": {
                   "source": "openapi.yaml",
                   "directory": "api-reference"
-                }
+                },
+                "pages": [
+                  {
+                    "group": "Základy integrácie",
+                    "pages": [
+                      {
+                        "group": "Lookupy",
+                        "pages": [
+                          "GET /banks",
+                          "GET /countries",
+                          "GET /languages",
+                          "GET /currencies",
+                          "GET /delivery-methods",
+                          "GET /payment-methods",
+                          "GET /qr-types",
+                          "GET /units"
+                        ]
+                      },
+                      {
+                        "group": "Číselné rady",
+                        "pages": [
+                          "GET /numerical-series",
+                          "GET /numerical-series/{numericalSeries}"
+                        ]
+                      },
+                      {
+                        "group": "Subjekty",
+                        "pages": [
+                          "GET /subjects",
+                          "GET /subjects/{subject}"
+                        ]
+                      },
+                      {
+                        "group": "Klienti",
+                        "pages": [
+                          "GET /clients",
+                          "POST /clients",
+                          "GET /clients/{client}",
+                          "PUT /clients/{client}",
+                          "DELETE /clients/{client}"
+                        ]
+                      },
+                      {
+                        "group": "Dodávatelia",
+                        "pages": [
+                          "GET /suppliers",
+                          "POST /suppliers",
+                          "GET /suppliers/{supplier}",
+                          "PUT /suppliers/{supplier}",
+                          "DELETE /suppliers/{supplier}"
+                        ]
+                      },
+                      {
+                        "group": "Bankové účty",
+                        "pages": [
+                          "GET /bank-accounts",
+                          "POST /bank-accounts",
+                          "GET /bank-accounts/{bankAccount}",
+                          "PATCH /bank-accounts/{bankAccount}",
+                          "DELETE /bank-accounts/{bankAccount}"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Webhooky",
+                    "pages": [
+                      {
+                        "group": "Webhooky",
+                        "pages": [
+                          "GET /webhook-subscriptions",
+                          "POST /webhook-subscriptions",
+                          "GET /webhook-subscriptions/{webhookSubscription}",
+                          "PUT /webhook-subscriptions/{webhookSubscription}",
+                          "DELETE /webhook-subscriptions/{webhookSubscription}",
+                          "POST /webhook-subscriptions/{webhookSubscription}/rotate-secret"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "CRM",
+                    "pages": [
+                      {
+                        "group": "Stavy obchodných prípadov",
+                        "pages": [
+                          "GET /business-case-statuses",
+                          "POST /business-case-statuses",
+                          "GET /business-case-statuses/{businessCaseStatus}",
+                          "PUT /business-case-statuses/{businessCaseStatus}",
+                          "DELETE /business-case-statuses/{businessCaseStatus}"
+                        ]
+                      },
+                      {
+                        "group": "Obchodné prípady",
+                        "pages": [
+                          "GET /business-cases",
+                          "POST /business-cases",
+                          "GET /business-cases/{businessCase}",
+                          "PATCH /business-cases/{businessCase}",
+                          "DELETE /business-cases/{businessCase}"
+                        ]
+                      },
+                      {
+                        "group": "CRM udalosti",
+                        "pages": [
+                          "POST /contact-activity-attachments",
+                          "GET /contact-activity-logs",
+                          "POST /contact-activity-logs",
+                          "GET /contact-activity-logs/{contactActivityLog}",
+                          "PATCH /contact-activity-logs/{contactActivityLog}",
+                          "DELETE /contact-activity-logs/{contactActivityLog}",
+                          "GET /contact-activity-logs/{contactActivityLog}/attachments"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Sklady a katalóg",
+                    "pages": [
+                      {
+                        "group": "Sklady",
+                        "pages": [
+                          "GET /warehouses",
+                          "POST /warehouses",
+                          "GET /warehouses/{warehouse}",
+                          "PUT /warehouses/{warehouse}",
+                          "DELETE /warehouses/{warehouse}"
+                        ]
+                      },
+                      {
+                        "group": "Skladové príjemky",
+                        "pages": [
+                          "GET /warehouse-inbound-receipts",
+                          "POST /warehouse-inbound-receipts",
+                          "GET /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "PUT /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "DELETE /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "GET /warehouse-inbound-receipts/{warehouseInboundReceipt}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Skladové výdajky",
+                        "pages": [
+                          "GET /warehouse-outbound-receipts",
+                          "POST /warehouse-outbound-receipts",
+                          "GET /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "PUT /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "DELETE /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "GET /warehouse-outbound-receipts/{warehouseOutboundReceipt}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Skladové a cenníkové položky",
+                        "pages": [
+                          "GET /price-list-items",
+                          "POST /price-list-items",
+                          "GET /price-list-items/{priceListItem}",
+                          "PUT /price-list-items/{priceListItem}",
+                          "DELETE /price-list-items/{priceListItem}"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Doklady",
+                    "pages": [
+                      {
+                        "group": "Faktúry",
+                        "pages": [
+                          "GET /invoices",
+                          "POST /invoices",
+                          "GET /invoices/{invoice}",
+                          "PUT /invoices/{invoice}",
+                          "DELETE /invoices/{invoice}",
+                          "GET /invoices/{invoice}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Dobropisy",
+                        "pages": [
+                          "POST /invoices/{invoice}/credit-notes",
+                          "GET /credit-notes",
+                          "POST /credit-notes",
+                          "GET /credit-notes/{creditNote}",
+                          "PUT /credit-notes/{creditNote}",
+                          "DELETE /credit-notes/{creditNote}",
+                          "GET /credit-notes/{creditNote}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Zálohové faktúry",
+                        "pages": [
+                          "GET /proformas",
+                          "POST /proformas",
+                          "GET /proformas/{proforma}",
+                          "PUT /proformas/{proforma}",
+                          "DELETE /proformas/{proforma}",
+                          "GET /proformas/{proforma}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Objednávky",
+                        "pages": [
+                          "GET /orders",
+                          "POST /orders",
+                          "GET /orders/{order}",
+                          "PUT /orders/{order}",
+                          "DELETE /orders/{order}",
+                          "GET /orders/{order}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Cenové ponuky",
+                        "pages": [
+                          "GET /quotations",
+                          "POST /quotations",
+                          "GET /quotations/{quotation}",
+                          "PUT /quotations/{quotation}",
+                          "DELETE /quotations/{quotation}",
+                          "GET /quotations/{quotation}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Úhrady dokladov",
+                        "pages": [
+                          "GET /document-payments",
+                          "POST /document-payments",
+                          "GET /document-payments/{documentPayment}",
+                          "DELETE /document-payments/{documentPayment}"
+                        ]
+                      },
+                      {
+                        "group": "Dokladové e-maily",
+                        "pages": [
+                          "POST /document-mails"
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -105,7 +345,247 @@
                 "openapi": {
                   "source": "en/openapi.yaml",
                   "directory": "en/api-reference"
-                }
+                },
+                "pages": [
+                  {
+                    "group": "Integration basics",
+                    "pages": [
+                      {
+                        "group": "Lookups",
+                        "pages": [
+                          "GET /banks",
+                          "GET /countries",
+                          "GET /languages",
+                          "GET /currencies",
+                          "GET /delivery-methods",
+                          "GET /payment-methods",
+                          "GET /qr-types",
+                          "GET /units"
+                        ]
+                      },
+                      {
+                        "group": "Numerical Series",
+                        "pages": [
+                          "GET /numerical-series",
+                          "GET /numerical-series/{numericalSeries}"
+                        ]
+                      },
+                      {
+                        "group": "Subjects",
+                        "pages": [
+                          "GET /subjects",
+                          "GET /subjects/{subject}"
+                        ]
+                      },
+                      {
+                        "group": "Clients",
+                        "pages": [
+                          "GET /clients",
+                          "POST /clients",
+                          "GET /clients/{client}",
+                          "PUT /clients/{client}",
+                          "DELETE /clients/{client}"
+                        ]
+                      },
+                      {
+                        "group": "Suppliers",
+                        "pages": [
+                          "GET /suppliers",
+                          "POST /suppliers",
+                          "GET /suppliers/{supplier}",
+                          "PUT /suppliers/{supplier}",
+                          "DELETE /suppliers/{supplier}"
+                        ]
+                      },
+                      {
+                        "group": "Bank Accounts",
+                        "pages": [
+                          "GET /bank-accounts",
+                          "POST /bank-accounts",
+                          "GET /bank-accounts/{bankAccount}",
+                          "PATCH /bank-accounts/{bankAccount}",
+                          "DELETE /bank-accounts/{bankAccount}"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "pages": [
+                      {
+                        "group": "Webhooks",
+                        "pages": [
+                          "GET /webhook-subscriptions",
+                          "POST /webhook-subscriptions",
+                          "GET /webhook-subscriptions/{webhookSubscription}",
+                          "PUT /webhook-subscriptions/{webhookSubscription}",
+                          "DELETE /webhook-subscriptions/{webhookSubscription}",
+                          "POST /webhook-subscriptions/{webhookSubscription}/rotate-secret"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "CRM",
+                    "pages": [
+                      {
+                        "group": "Business Case Statuses",
+                        "pages": [
+                          "GET /business-case-statuses",
+                          "POST /business-case-statuses",
+                          "GET /business-case-statuses/{businessCaseStatus}",
+                          "PUT /business-case-statuses/{businessCaseStatus}",
+                          "DELETE /business-case-statuses/{businessCaseStatus}"
+                        ]
+                      },
+                      {
+                        "group": "Business Cases",
+                        "pages": [
+                          "GET /business-cases",
+                          "POST /business-cases",
+                          "GET /business-cases/{businessCase}",
+                          "PATCH /business-cases/{businessCase}",
+                          "DELETE /business-cases/{businessCase}"
+                        ]
+                      },
+                      {
+                        "group": "CRM Events",
+                        "pages": [
+                          "POST /contact-activity-attachments",
+                          "GET /contact-activity-logs",
+                          "POST /contact-activity-logs",
+                          "GET /contact-activity-logs/{contactActivityLog}",
+                          "PATCH /contact-activity-logs/{contactActivityLog}",
+                          "DELETE /contact-activity-logs/{contactActivityLog}",
+                          "GET /contact-activity-logs/{contactActivityLog}/attachments"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Warehouses and catalog",
+                    "pages": [
+                      {
+                        "group": "Warehouses",
+                        "pages": [
+                          "GET /warehouses",
+                          "POST /warehouses",
+                          "GET /warehouses/{warehouse}",
+                          "PUT /warehouses/{warehouse}",
+                          "DELETE /warehouses/{warehouse}"
+                        ]
+                      },
+                      {
+                        "group": "Warehouse Inbound Receipts",
+                        "pages": [
+                          "GET /warehouse-inbound-receipts",
+                          "POST /warehouse-inbound-receipts",
+                          "GET /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "PUT /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "DELETE /warehouse-inbound-receipts/{warehouseInboundReceipt}",
+                          "GET /warehouse-inbound-receipts/{warehouseInboundReceipt}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Warehouse Outbound Receipts",
+                        "pages": [
+                          "GET /warehouse-outbound-receipts",
+                          "POST /warehouse-outbound-receipts",
+                          "GET /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "PUT /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "DELETE /warehouse-outbound-receipts/{warehouseOutboundReceipt}",
+                          "GET /warehouse-outbound-receipts/{warehouseOutboundReceipt}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Price List Items",
+                        "pages": [
+                          "GET /price-list-items",
+                          "POST /price-list-items",
+                          "GET /price-list-items/{priceListItem}",
+                          "PUT /price-list-items/{priceListItem}",
+                          "DELETE /price-list-items/{priceListItem}"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Documents",
+                    "pages": [
+                      {
+                        "group": "Invoices",
+                        "pages": [
+                          "GET /invoices",
+                          "POST /invoices",
+                          "GET /invoices/{invoice}",
+                          "PUT /invoices/{invoice}",
+                          "DELETE /invoices/{invoice}",
+                          "GET /invoices/{invoice}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Credit Notes",
+                        "pages": [
+                          "POST /invoices/{invoice}/credit-notes",
+                          "GET /credit-notes",
+                          "POST /credit-notes",
+                          "GET /credit-notes/{creditNote}",
+                          "PUT /credit-notes/{creditNote}",
+                          "DELETE /credit-notes/{creditNote}",
+                          "GET /credit-notes/{creditNote}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Proformas",
+                        "pages": [
+                          "GET /proformas",
+                          "POST /proformas",
+                          "GET /proformas/{proforma}",
+                          "PUT /proformas/{proforma}",
+                          "DELETE /proformas/{proforma}",
+                          "GET /proformas/{proforma}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Orders",
+                        "pages": [
+                          "GET /orders",
+                          "POST /orders",
+                          "GET /orders/{order}",
+                          "PUT /orders/{order}",
+                          "DELETE /orders/{order}",
+                          "GET /orders/{order}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Quotations",
+                        "pages": [
+                          "GET /quotations",
+                          "POST /quotations",
+                          "GET /quotations/{quotation}",
+                          "PUT /quotations/{quotation}",
+                          "DELETE /quotations/{quotation}",
+                          "GET /quotations/{quotation}/pdf"
+                        ]
+                      },
+                      {
+                        "group": "Document Payments",
+                        "pages": [
+                          "GET /document-payments",
+                          "POST /document-payments",
+                          "GET /document-payments/{documentPayment}",
+                          "DELETE /document-payments/{documentPayment}"
+                        ]
+                      },
+                      {
+                        "group": "Document Emails",
+                        "pages": [
+                          "POST /document-mails"
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }

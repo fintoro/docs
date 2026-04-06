@@ -1,3 +1,8 @@
+---
+title: "Fintoro Public API"
+sidebarTitle: "Introduction"
+---
+
 # Fintoro Public API
 
 Fintoro Public API is a REST API for integrating Fintoro invoicing, CRM, and warehouse workflows into third-party systems. It is intended for partners, internal integration teams, and customer implementations that need reliable read and write access to Fintoro data and also want to react to changes through outbound webhooks.

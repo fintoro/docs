@@ -1,3 +1,7 @@
+---
+title: "Testovanie v sandboxe"
+---
+
 # Testovanie v sandboxe
 
 Sandboxové firmy slúžia na izolované testovanie API. Nepoužívajú samostatný host ani inú základnú cestu.

@@ -1,3 +1,7 @@
+---
+title: "API conventions"
+---
+
 # API conventions
 
 This section summarizes the rules that repeat across Public API v1.

@@ -1,3 +1,7 @@
+---
+title: "Reference tables"
+---
+
 # Reference tables
 
 These lookups are treated as fixed values in Fintoro. You can also fetch them through read-only public API endpoints, and the tables below provide a quick human-readable reference.

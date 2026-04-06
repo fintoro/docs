@@ -1,3 +1,7 @@
+---
+title: "Autentifikácia"
+---
+
 # Autentifikácia
 
 Fintoro Public API používa bearer tokeny. Token je vždy vydaný pre konkrétnu firmu.

@@ -1,3 +1,7 @@
+---
+title: "Webhooky"
+---
+
 # Webhooky
 
 Fintoro Public API podporuje odchádzajúce webhooky pre integrácie riadené udalosťami. Ak potrebujete na zmeny reagovať priebežne a držať externý systém zosynchronizovaný s čo najmenším oneskorením, webhooky sú správny mechanizmus. Fintoro Vám odošle HTTP `POST` request vždy, keď nastane vybraná obchodná udalosť.

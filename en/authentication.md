@@ -1,3 +1,7 @@
+---
+title: "Authentication"
+---
+
 # Authentication
 
 Fintoro Public API uses bearer tokens. A token is always issued for one specific company.

@@ -1,3 +1,8 @@
+---
+title: "Chyby, rate limiting a retry správanie"
+sidebarTitle: "Chyby, limity a retry"
+---
+
 # Chyby, rate limiting a retry správanie
 
 Táto kapitola vysvetľuje, aké chybové stavy môže Public API vracať, ako funguje rate limiting a kedy je retry bezpečný. Nájdete tu aj pravidlá pre `Idempotency-Key`, `X-Request-Id` a retry alebo deduplikáciu webhookov.

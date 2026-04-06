@@ -1,3 +1,8 @@
+---
+title: "Fintoro Public API"
+sidebarTitle: "Úvod"
+---
+
 # Fintoro Public API
 
 Fintoro Public API je REST API na integráciu Fintoro fakturácie, CRM a skladového systému do systémov tretích strán. Je určené pre partnerov, interné integračné tímy aj zákaznícke implementácie, ktoré potrebujú spoľahlivo čítať a zapisovať údaje z Fintoro a zároveň reagovať na zmeny cez odchádzajúce webhooky.

@@ -1,3 +1,7 @@
+---
+title: "Konvencie API"
+---
+
 # Konvencie API
 
 Táto sekcia zhŕňa pravidlá, ktoré sa opakujú naprieč Public API v1.

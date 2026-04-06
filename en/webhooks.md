@@ -1,3 +1,7 @@
+---
+title: "Webhooks"
+---
+
 # Webhooks
 
 Fintoro Public API supports outbound webhooks for event-driven integrations. If you need to react to changes continuously and keep an external system synchronized with minimal delay, webhooks are the right mechanism. Fintoro sends an HTTP `POST` request whenever one of the selected business events occurs.

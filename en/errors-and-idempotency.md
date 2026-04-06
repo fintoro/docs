@@ -1,3 +1,8 @@
+---
+title: "Errors, rate limits, and retries"
+sidebarTitle: "Errors and idempotency"
+---
+
 # Errors, rate limits, and retries
 
 This page explains which error states the Public API can return, how rate limiting works, and when retries are safe. It also covers `Idempotency-Key`, `X-Request-Id`, and webhook retry and deduplication behavior.

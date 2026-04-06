@@ -1,3 +1,8 @@
+---
+title: "Referenčné tabuľky"
+sidebarTitle: "Číselníky"
+---
+
 # Referenčné tabuľky
 
 Tieto číselníky sú vo Fintoro považované za fixné hodnoty. Môžete si ich načítať aj cez read-only endpointy public API, no nižšie ich máte pokope ako rýchlu referenciu pre človeka.

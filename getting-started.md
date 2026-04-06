@@ -1,3 +1,7 @@
+---
+title: "Začíname"
+---
+
 # Začíname
 
 Táto príručka slúži na prvé pripojenie k Fintoro Public API. Cieľom je overiť, že máte správny token a viete sa zorientovať v ďalších sekciách dokumentácie bez toho, aby sa tu znovu opakovali všetky prevádzkové pravidlá.

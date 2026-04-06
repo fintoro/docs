@@ -1,3 +1,7 @@
+---
+title: "Getting started"
+---
+
 # Getting started
 
 Use this guide to make the first authenticated request to Fintoro Public API. The goal is to verify the token and your orientation in the rest of the documentation without repeating every operational rule here.
