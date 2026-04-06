@@ -2,10 +2,7 @@
 title: "Konvencie API"
 ---
 
-# Konvencie API
-
 Táto sekcia zhŕňa pravidlá, ktoré sa opakujú naprieč Public API v1.
-
 ## Requesty
 
 - Public API používa JSON requesty a JSON response payloady.
@@ -66,16 +63,16 @@ Podporované request language tagy:
 
 - Fixné lookupy vracajú celý dataset bez filtrovania a stránkovania.
 - ID fixných lookupov sú stabilné v rámci tejto verzie API.
-- Rýchly ľudský prehľad stabilných ID nájdete aj v [referenčných tabuľkách](./reference-tables.md).
+- Rýchly ľudský prehľad stabilných ID nájdete aj v [referenčných tabuľkách](/reference-tables).
 
 ## Poznámky ku konkrétnym resource-om
 
 - Pri dokladových create flowoch sa časť hodnôt môže doplniť z klienta, firemných nastavení alebo systémových resolverov. Presné pravidlá vždy overte v schéme konkrétneho endpointu.
 - `contact-activity-logs` prílohy používajú dvojkrokový upload flow cez samostatný upload endpoint a následné použitie upload tokenov.
 - Dokladové resource-y ponúkajú samostatné endpointy na stiahnutie PDF alebo `pdfDownloadUrl` v odpovedi.
-- Väčšina upraviteľných business resource-ov môže zároveň emitovať webhook eventy. Presný katalóg eventov nájdete v [Webhookoch](./webhooks.md).
+- Väčšina upraviteľných business resource-ov môže zároveň emitovať webhook eventy. Presný katalóg eventov nájdete v [Webhookoch](/webhooks).
 
 ## Verzovanie a kontrakt
 
 - Táto dokumentácia popisuje Public API v1 pod `/api/public/v1`.
-- Ak potrebujete presnú podobu payloadu, enumov alebo validačných pravidiel, zdrojom pravdy je [API referencia](./api-reference/index.mdx).
+- Ak potrebujete presnú podobu payloadu, enumov alebo validačných pravidiel, zdrojom pravdy je [API referencia](/api-reference).

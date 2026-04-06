@@ -3,10 +3,7 @@ title: "Errors, rate limits, and retries"
 sidebarTitle: "Errors and idempotency"
 ---
 
-# Errors, rate limits, and retries
-
 This page explains which error states the Public API can return, how rate limiting works, and when retries are safe. It also covers `Idempotency-Key`, `X-Request-Id`, and webhook retry and deduplication behavior.
-
 ## HTTP errors and error responses
 
 - `401` or another auth failure means the request does not have a usable bearer token. Typical causes are a missing, invalid, or revoked token.

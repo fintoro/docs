@@ -2,10 +2,7 @@
 title: "Webhooky"
 ---
 
-# Webhooky
-
 Fintoro Public API podporuje odchádzajúce webhooky pre integrácie riadené udalosťami. Ak potrebujete na zmeny reagovať priebežne a držať externý systém zosynchronizovaný s čo najmenším oneskorením, webhooky sú správny mechanizmus. Fintoro Vám odošle HTTP `POST` request vždy, keď nastane vybraná obchodná udalosť.
-
 Webhooky v Public API sú navrhnuté ako tenký trigger, nie ako paralelný snapshot API. Payload doručenia vždy obsahuje len identitu udalosti, jej typ a odkaz na resource cez `resource.type` + `resource.id`. Detail si následne dotiahnete z Public API vo verzii, ktorú používa Vaša integrácia.
 
 ## Kedy webhooky použiť
@@ -18,7 +15,7 @@ Odporúčaný model je: webhook prijmete, overíte podpis, uložíte `webhook-id
 
 ## Správa odberov
 
-Odbery webhookov spravujete priamo cez Public API. Secret v otvorenej podobe sa zobrazí iba pri vytvorení odberu alebo pri jeho manuálnej rotácii. Presný CRUD kontrakt, request schémy a response payloady nájdete priamo v [Webhook API referencii](./api-reference/index.mdx).
+Odbery webhookov spravujete priamo cez Public API. Secret v otvorenej podobe sa zobrazí iba pri vytvorení odberu alebo pri jeho manuálnej rotácii. Presný CRUD kontrakt, request schémy a response payloady nájdete priamo v [Webhook API referencii](/api-reference).
 
 Prakticky to znamená:
 
@@ -354,8 +351,8 @@ Pri delete eventoch rátajte s tým, že detail resource-u už nemusí byť dost
 
 ## Súvisiace sekcie
 
-- [Začíname](./getting-started.md)
-- [Autentifikácia](./authentication.md)
-- [Konvencie API](./conventions.md)
-- [Chyby a idempotencia](./errors-and-idempotency.md)
-- [Webhook API referencia](./api-reference/index.mdx)
+- [Začíname](/getting-started)
+- [Autentifikácia](/authentication)
+- [Konvencie API](/conventions)
+- [Chyby a idempotencia](/errors-and-idempotency)
+- [Webhook API referencia](/api-reference)

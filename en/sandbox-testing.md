@@ -2,10 +2,7 @@
 title: "Sandbox testing"
 ---
 
-# Sandbox testing
-
 Sandbox companies are used for isolated API testing. They do not use a separate host or base path.
-
 ## How the sandbox model works
 
 - You can create multiple sandbox companies under one production company.

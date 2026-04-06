@@ -2,10 +2,7 @@
 title: "Reference tables"
 ---
 
-# Reference tables
-
 These lookups are treated as fixed values in Fintoro. You can also fetch them through read-only public API endpoints, and the tables below provide a quick human-readable reference.
-
 These tables are useful for quickly verifying stable IDs. If you need the data in a machine-readable form, use the lookup endpoints directly. They return the full dataset without filtering or pagination. For banks, we also list the domestic bank code and SWIFT so you have one manual reference table for bank-account mapping.
 
 <a id="countries"></a>

@@ -2,10 +2,7 @@
 title: "Webhooks"
 ---
 
-# Webhooks
-
 Fintoro Public API supports outbound webhooks for event-driven integrations. If you need to react to changes continuously and keep an external system synchronized with minimal delay, webhooks are the right mechanism. Fintoro sends an HTTP `POST` request whenever one of the selected business events occurs.
-
 In Public API, webhooks are designed as a thin trigger, not as a parallel snapshot API. The delivery payload always contains only the event identity, the event type, and a pointer to the resource through `resource.type` + `resource.id`. Your integration then fetches the full resource detail from the Public API version it already uses.
 
 ## When to use webhooks
@@ -18,7 +15,7 @@ The recommended model is: receive the webhook, verify the signature, store `webh
 
 ## Subscription management
 
-Manage webhook subscriptions directly through the Public API. The plaintext secret is only returned when the subscription is created or when you rotate it manually. For the exact CRUD contract, request schemas, and response payloads, use the [Webhook API reference](./api-reference/index.mdx).
+Manage webhook subscriptions directly through the Public API. The plaintext secret is only returned when the subscription is created or when you rotate it manually. For the exact CRUD contract, request schemas, and response payloads, use the [Webhook API reference](/en/api-reference).
 
 In practice:
 
@@ -354,8 +351,8 @@ For delete events, assume that the detail endpoint may no longer return the reso
 
 ## Related sections
 
-- [Getting started](./getting-started.md)
-- [Authentication](./authentication.md)
-- [API conventions](./conventions.md)
-- [Errors and idempotency](./errors-and-idempotency.md)
-- [Webhook API reference](./api-reference/index.mdx)
+- [Getting started](/en/getting-started)
+- [Authentication](/en/authentication)
+- [API conventions](/en/conventions)
+- [Errors and idempotency](/en/errors-and-idempotency)
+- [Webhook API reference](/en/api-reference)

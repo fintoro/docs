@@ -2,10 +2,7 @@
 title: "Začíname"
 ---
 
-# Začíname
-
 Táto príručka slúži na prvé pripojenie k Fintoro Public API. Cieľom je overiť, že máte správny token a viete sa zorientovať v ďalších sekciách dokumentácie bez toho, aby sa tu znovu opakovali všetky prevádzkové pravidlá.
-
 ## 1. Vytvorte token alebo sandbox firmu
 
 Vo Fintoro otvorte `Integrácie > Public API`.
@@ -36,8 +33,8 @@ Ak request vráti `200 OK`, máte overený host aj token.
 1. Vytvorte token s najnižším potrebným rozsahom oprávnení.
 2. Načítajte si lookupy a referenčné tabuľky, ktoré budete potrebovať pri skladaní request payloadov.
 3. Overte read scenáre na reálnej alebo sandboxovej firme.
-4. Ak potrebujete reagovať na zmeny priebežne, implementujte [Webhooky](./webhooks.md). Periodické dotazovanie používajte nanajvýš na prvotný import alebo kontrolné dorovnanie.
-5. Pred prvým zápisovým scenárom si prejdite [Konvencie API](./conventions.md) a [Chyby, rate limiting a retry správanie](./errors-and-idempotency.md).
+4. Ak potrebujete reagovať na zmeny priebežne, implementujte [Webhooky](/webhooks). Periodické dotazovanie používajte nanajvýš na prvotný import alebo kontrolné dorovnanie.
+5. Pred prvým zápisovým scenárom si prejdite [Konvencie API](/conventions) a [Chyby, rate limiting a retry správanie](/errors-and-idempotency).
 
 ## 4. Skontrolujte základné rozhodnutia
 
@@ -49,9 +46,9 @@ Ak request vráti `200 OK`, máte overený host aj token.
 
 ## Ďalšie čítanie
 
-- [Autentifikácia](./authentication.md)
-- [Testovanie v sandboxe](./sandbox-testing.md)
-- [Webhooky](./webhooks.md)
-- [Konvencie API](./conventions.md)
-- [Chyby, rate limiting a retry správanie](./errors-and-idempotency.md)
-- [API referencia](./api-reference/index.mdx)
+- [Autentifikácia](/authentication)
+- [Testovanie v sandboxe](/sandbox-testing)
+- [Webhooky](/webhooks)
+- [Konvencie API](/conventions)
+- [Chyby, rate limiting a retry správanie](/errors-and-idempotency)
+- [API referencia](/api-reference)

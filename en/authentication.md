@@ -2,10 +2,7 @@
 title: "Authentication"
 ---
 
-# Authentication
-
 Fintoro Public API uses bearer tokens. A token is always issued for one specific company.
-
 ## Authorization header
 
 Send every request with the `Authorization: Bearer <company-token>` header.
@@ -18,7 +15,7 @@ curl --request GET \
   --header 'Accept: application/json'
 ```
 
-`Accept-Language` is optional for any Public API request. It localizes system-owned labels in fixed lookups and in the same nested lookup objects returned by business responses, and it also affects validation errors. Supported tags and fallback rules are listed in the [API conventions](./conventions.md). It does not translate user-generated data.
+`Accept-Language` is optional for any Public API request. It localizes system-owned labels in fixed lookups and in the same nested lookup objects returned by business responses, and it also affects validation errors. Supported tags and fallback rules are listed in the [API conventions](/en/conventions). It does not translate user-generated data.
 
 ## Scope model
 

@@ -2,10 +2,7 @@
 title: "API conventions"
 ---
 
-# API conventions
-
 This section summarizes the rules that repeat across Public API v1.
-
 ## Requests
 
 - The Public API uses JSON request and response payloads.
@@ -66,16 +63,16 @@ Supported request language tags:
 
 - Fixed lookup endpoints return the full dataset without filtering or pagination.
 - Fixed lookup IDs are stable within this API version.
-- For a quick human-readable overview of stable IDs, use the [reference tables](./reference-tables.md).
+- For a quick human-readable overview of stable IDs, use the [reference tables](/en/reference-tables).
 
 ## Resource-specific notes
 
 - In document create flows, some values may be resolved from the client, company settings, or system resolvers. Always verify the exact behavior in the schema of the specific endpoint.
 - `contact-activity-logs` attachments use a two-step upload flow through a separate upload endpoint and follow-up upload tokens.
 - Document resources expose dedicated PDF download endpoints or `pdfDownloadUrl` in the response.
-- Most mutable business resources can also emit webhook events. The exact event catalog is documented in [Webhooks](./webhooks.md).
+- Most mutable business resources can also emit webhook events. The exact event catalog is documented in [Webhooks](/en/webhooks).
 
 ## Versioning and contract
 
 - This documentation describes Public API v1 under `/api/public/v1`.
-- If you need the exact payload shape, enums, or validation rules, the source of truth is the [API reference](./api-reference/index.mdx).
+- If you need the exact payload shape, enums, or validation rules, the source of truth is the [API reference](/en/api-reference).

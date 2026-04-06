@@ -1,34 +1,28 @@
-> **Customize this file**: Tailor this template to your project by noting specific contribution types you're looking for, adding a Code of Conduct, or adjusting the writing guidelines to match your style.
+# Contributing
 
-# Contribute to the documentation
+## Scope
 
-Thank you for your interest in contributing to our documentation! This guide will help you get started.
+Tento repozitár obsahuje Mintlify dokumentáciu pre Fintoro Public API. Zmeny v guide pages, navigácii a OpenAPI specoch udržiavajte obsahovo zladené medzi slovenskou a anglickou vetvou.
 
-## How to contribute
+## Local preview
 
-### Option 1: Edit directly on GitHub
+```bash
+mint dev
+```
 
-1. Navigate to the page you want to edit
-2. Click the "Edit this file" button (the pencil icon)
-3. Make your changes and submit a pull request
+Preview je dostupné na `http://localhost:3000`.
 
-### Option 2: Local development
+## Required checks
 
-1. Fork and clone this repository
-2. Install the Mintlify CLI: `npm i -g mint`
-3. Create a branch for your changes
-4. Make changes
-5. Navigate to the docs directory and run `mint dev`
-6. Preview your changes at `http://localhost:3000`
-7. Commit your changes and submit a pull request
+Pred odovzdaním zmien spustite:
 
-For more details on local development, see our [development guide](development.mdx).
+```bash
+mint validate
+mint broken-links
+```
 
-## Writing guidelines
+## Content rules
 
-- **Use active voice**: "Run the command" not "The command should be run"
-- **Address the reader directly**: Use "you" instead of "the user"
-- **Keep sentences concise**: Aim for one idea per sentence
-- **Lead with the goal**: Start instructions with what the user wants to accomplish
-- **Use consistent terminology**: Don't alternate between synonyms for the same concept
-- **Include examples**: Show, don't just tell
+- Interné odkazy smerujte na Mintlify routy bez `.md` a `.mdx`.
+- Link na raw OpenAPI používajte len tam, kde má ísť o download.
+- Keď meníte API kontrakt, dorovnajte zmenu v `openapi.yaml` aj `en/openapi.yaml`.

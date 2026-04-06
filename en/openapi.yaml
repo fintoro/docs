@@ -10,12 +10,12 @@ info:
     The optional `Accept-Language` request header localizes system-owned labels in lookups, in related response objects, and in validation errors. The `Content-Language` response header returns the language used in the response.
 
     For onboarding and operational guidance, also see:
-    - [Getting started](./getting-started.md)
-    - [Authentication](./authentication.md)
-    - [Webhooks](./webhooks.md)
-    - [Sandbox testing](./sandbox-testing.md)
-    - [API conventions](./conventions.md)
-    - [Errors and idempotency](./errors-and-idempotency.md)
+    - [Getting started](/en/getting-started)
+    - [Authentication](/en/authentication)
+    - [Webhooks](/en/webhooks)
+    - [Sandbox testing](/en/sandbox-testing)
+    - [API conventions](/en/conventions)
+    - [Errors and idempotency](/en/errors-and-idempotency)
 servers:
   - url: https://app.fintoro.sk/api/public/v1
     description: Production Public API.
@@ -73,7 +73,7 @@ tags:
   - name: Bank Accounts
     description: Manage bank accounts, including bank details, primary account state, and open banking metadata. Create, update, and delete operations can emit `bank-accounts.created`, `bank-accounts.updated`, and `bank-accounts.deleted` webhook events.
   - name: Webhooks
-    description: Manage outbound webhook subscriptions for Public API. This section covers subscription CRUD, manual secret rotation, and the delivery payload contract for event-driven integrations. The delivery contract, signature verification, retry behavior, and full event catalog are documented in the [Webhooks guide](./webhooks.md).
+    description: Manage outbound webhook subscriptions for Public API. This section covers subscription CRUD, manual secret rotation, and the delivery payload contract for event-driven integrations. The delivery contract, signature verification, retry behavior, and full event catalog are documented in the [Webhooks guide](/en/webhooks).
   - name: Warehouses
     description: CRUD operations for warehouses, including inbound and outbound numbering series. Create, update, and delete operations can emit `warehouses.created`, `warehouses.updated`, and `warehouses.deleted` webhook events.
   - name: Warehouse Inbound Receipts
@@ -158,7 +158,7 @@ paths:
       tags: [Lookups]
       summary: List countries
       operationId: listCountries
-      description: Returns the fixed country lookup. The endpoint does not support filtering or pagination and returns the full dataset. Country IDs are stable within this API version and are also listed in the [country reference table](./reference-tables.md#countries). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed country lookup. The endpoint does not support filtering or pagination and returns the full dataset. Country IDs are stable within this API version and are also listed in the [country reference table](/en/reference-tables#countries). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -188,7 +188,7 @@ paths:
       tags: [Lookups]
       summary: List languages
       operationId: listLanguages
-      description: Returns the fixed language lookup. The endpoint does not support filtering or pagination and returns the full dataset. Language IDs are stable within this API version and are also listed in the [language reference table](./reference-tables.md#languages). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed language lookup. The endpoint does not support filtering or pagination and returns the full dataset. Language IDs are stable within this API version and are also listed in the [language reference table](/en/reference-tables#languages). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -218,7 +218,7 @@ paths:
       tags: [Lookups]
       summary: List currencies
       operationId: listCurrencies
-      description: Returns the fixed currency lookup. The endpoint does not support filtering or pagination and returns the full dataset. Currency IDs are stable within this API version and are also listed in the [currency reference table](./reference-tables.md#currencies). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed currency lookup. The endpoint does not support filtering or pagination and returns the full dataset. Currency IDs are stable within this API version and are also listed in the [currency reference table](/en/reference-tables#currencies). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -248,7 +248,7 @@ paths:
       tags: [Lookups]
       summary: List delivery methods
       operationId: listDeliveryMethods
-      description: Returns the fixed delivery-method lookup. The endpoint does not support filtering or pagination and returns the full dataset. Delivery-method IDs are stable within this API version and are also listed in the [delivery method reference table](./reference-tables.md#delivery-methods). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed delivery-method lookup. The endpoint does not support filtering or pagination and returns the full dataset. Delivery-method IDs are stable within this API version and are also listed in the [delivery method reference table](/en/reference-tables#delivery-methods). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -278,7 +278,7 @@ paths:
       tags: [Lookups]
       summary: List payment methods
       operationId: listPaymentMethods
-      description: Returns the fixed payment-method lookup. The endpoint does not support filtering or pagination and returns the full dataset. Payment-method IDs are stable within this API version and are also listed in the [payment method reference table](./reference-tables.md#payment-methods). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed payment-method lookup. The endpoint does not support filtering or pagination and returns the full dataset. Payment-method IDs are stable within this API version and are also listed in the [payment method reference table](/en/reference-tables#payment-methods). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -308,7 +308,7 @@ paths:
       tags: [Lookups]
       summary: List QR types
       operationId: listQrTypes
-      description: Returns the fixed QR-type lookup. The endpoint does not support filtering or pagination and returns the full dataset. QR-type IDs are stable within this API version and are also listed in the [QR type reference table](./reference-tables.md#qr-types). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed QR-type lookup. The endpoint does not support filtering or pagination and returns the full dataset. QR-type IDs are stable within this API version and are also listed in the [QR type reference table](/en/reference-tables#qr-types). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -338,7 +338,7 @@ paths:
       tags: [Lookups]
       summary: List units
       operationId: listUnits
-      description: Returns the fixed unit lookup. The endpoint does not support filtering or pagination and returns the full dataset. Unit IDs are stable within this API version and are also listed in the [unit reference table](./reference-tables.md#units). Labels can be localized through `Accept-Language`.
+      description: Returns the fixed unit lookup. The endpoint does not support filtering or pagination and returns the full dataset. Unit IDs are stable within this API version and are also listed in the [unit reference table](/en/reference-tables#units). Labels can be localized through `Accept-Language`.
       parameters:
         - $ref: '#/components/parameters/AcceptLanguage'
       responses:
@@ -591,7 +591,7 @@ paths:
         - name: countryId
           in: query
           required: false
-          description: "Filter by the client's billing country from the [country reference table](./reference-tables.md#countries)."
+          description: "Filter by the client's billing country from the [country reference table](/en/reference-tables#countries)."
           schema:
             type: integer
             example: 703
@@ -6042,7 +6042,7 @@ components:
           type: integer
           example: 301
         currencyId:
-          description: "Optional currency ID from the [currency reference table](./reference-tables.md#currencies). If omitted, the source document currency is used."
+          description: "Optional currency ID from the [currency reference table](/en/reference-tables#currencies). If omitted, the source document currency is used."
           type: integer
           example: 1
         currencyRate:
@@ -6056,7 +6056,7 @@ components:
           format: date
           example: '2026-03-07'
         paymentMethodId:
-          description: "Optional payment method ID from the [payment method reference table](./reference-tables.md#payment-methods). If omitted, the source document payment method is used."
+          description: "Optional payment method ID from the [payment method reference table](/en/reference-tables#payment-methods). If omitted, the source document payment method is used."
           type: integer
           example: 1
         amount:
@@ -6255,19 +6255,19 @@ components:
           example: '2026-03-03T15:45:00+01:00'
         preferredDeliveryMethodId:
           type: [integer, 'null']
-          description: "Default delivery method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [delivery method reference table](./reference-tables.md#delivery-methods)."
+          description: "Default delivery method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [delivery method reference table](/en/reference-tables#delivery-methods)."
           example: 1
         preferredPaymentMethodId:
           type: [integer, 'null']
-          description: "Default payment method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Default payment method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         preferredCurrencyId:
           type: [integer, 'null']
-          description: "Default currency for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Default currency for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         preferredLanguageId:
           type: [integer, 'null']
-          description: "Default language for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [language reference table](./reference-tables.md#languages)."
+          description: "Default language for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [language reference table](/en/reference-tables#languages)."
           example: 1
         preferredDueDays:
           description: Default due days. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload.
@@ -6351,7 +6351,7 @@ components:
           example: '81101'
         countryId:
           type: [integer, 'null']
-          description: "Billing country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Billing country ID from the [country reference table](/en/reference-tables#countries)."
           example: 703
         deliveryStreet:
           description: "Street and number of the delivery address. When any delivery address value is provided, `hasDeliveryAddress` is inferred automatically."
@@ -6370,23 +6370,23 @@ components:
           example: '04001'
         deliveryCountryId:
           type: [integer, 'null']
-          description: "Delivery country ID from the [country reference table](./reference-tables.md#countries). When any delivery address value is provided, `hasDeliveryAddress` is inferred automatically."
+          description: "Delivery country ID from the [country reference table](/en/reference-tables#countries). When any delivery address value is provided, `hasDeliveryAddress` is inferred automatically."
           example: 703
         preferredDeliveryMethodId:
           type: [integer, 'null']
-          description: "Default delivery method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [delivery method reference table](./reference-tables.md#delivery-methods)."
+          description: "Default delivery method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [delivery method reference table](/en/reference-tables#delivery-methods)."
           example: 1
         preferredPaymentMethodId:
           type: [integer, 'null']
-          description: "Default payment method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Default payment method for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         preferredCurrencyId:
           type: [integer, 'null']
-          description: "Default currency for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Default currency for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         preferredLanguageId:
           type: [integer, 'null']
-          description: "Default language for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [language reference table](./reference-tables.md#languages)."
+          description: "Default language for the client. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload. The value comes from the [language reference table](/en/reference-tables#languages)."
           example: 1
         preferredDueDays:
           description: Default due days. It is stored on the client and used as a fallback default when creating new documents for this client if you do not send an explicit value in the payload.
@@ -6539,7 +6539,7 @@ components:
           maxLength: 10
           example: '81101'
         countryId:
-          description: "Billing country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Billing country ID from the [country reference table](/en/reference-tables#countries)."
           type: [integer, 'null']
           example: 703
     BusinessCaseStatus:
@@ -7223,7 +7223,7 @@ components:
           type: [string, 'null']
           example: '81101'
         countryId:
-          description: "Country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Country ID from the [country reference table](/en/reference-tables#countries)."
           type: [integer, 'null']
           example: 703
         country:
@@ -7586,7 +7586,7 @@ components:
           maxLength: 10
           example: '81101'
         countryId:
-          description: "Billing country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Billing country ID from the [country reference table](/en/reference-tables#countries)."
           type: [integer, 'null']
           example: 703
     WarehouseOutboundReceiptClientInput:
@@ -7645,7 +7645,7 @@ components:
           maxLength: 10
           example: '81101'
         countryId:
-          description: "Billing country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Billing country ID from the [country reference table](/en/reference-tables#countries)."
           type: [integer, 'null']
           example: 703
     WarehouseReceiptLineInput:
@@ -7697,7 +7697,7 @@ components:
           type: [string, 'null']
           example: Monthly service and support
         unitId:
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           type: integer
           example: 1
         unit:
@@ -7786,7 +7786,7 @@ components:
           maximum: 10000000000000
           example: 129.9
         unitId:
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           type: integer
           example: 1
         vatRate:
@@ -7868,7 +7868,7 @@ components:
           example: 100.0
         unitId:
           type: integer
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           example: 1
         quantity:
           type: number
@@ -7942,7 +7942,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units). Required for manual items. When `priceListItemId` is used, it may override the unit from the price list item."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units). Required for manual items. When `priceListItemId` is used, it may override the unit from the price list item."
           type: [integer, 'null']
           example: 1
         quantity:
@@ -8111,7 +8111,7 @@ components:
           example: '81101'
         countryId:
           type: [integer, 'null']
-          description: "Country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Country ID from the [country reference table](/en/reference-tables#countries)."
           example: 703
         country:
           description: Billing country stored on the invoice as a nested object.
@@ -8136,7 +8136,7 @@ components:
           example: '04001'
         deliveryCountryId:
           type: [integer, 'null']
-          description: "Country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Country ID from the [country reference table](/en/reference-tables#countries)."
           example: 703
         deliveryCountry:
           description: Delivery country stored on the invoice as a nested object.
@@ -8393,23 +8393,23 @@ components:
           example: 12
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods)."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods)."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         qrTypeId:
           type: integer
-          description: "QR type ID from the [QR type reference table](./reference-tables.md#qr-types)."
+          description: "QR type ID from the [QR type reference table](/en/reference-tables#qr-types)."
           example: 1
         note:
           type: [string, 'null']
@@ -8474,7 +8474,7 @@ components:
           example: 100.0
         unitId:
           type: integer
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           example: 1
         quantity:
           type: number
@@ -8648,19 +8648,19 @@ components:
           example: 12
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods)."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods)."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         note:
           type: [string, 'null']
@@ -8710,7 +8710,7 @@ components:
           example: 100.0
         unitId:
           type: integer
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           example: 1
         quantity:
           type: number
@@ -8862,11 +8862,11 @@ components:
           example: 12
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         note:
           type: [string, 'null']
@@ -8920,7 +8920,7 @@ components:
           example: 100.0
         unitId:
           type: integer
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           example: 1
         quantity:
           type: number
@@ -9108,11 +9108,11 @@ components:
           example: 12
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         currencyRate:
           type: number
@@ -9120,7 +9120,7 @@ components:
           example: 1.0
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         note:
           type: [string, 'null']
@@ -9187,7 +9187,7 @@ components:
           example: -10.0
         unitId:
           type: integer
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units)."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units)."
           example: 1
         quantity:
           type: number
@@ -9371,15 +9371,15 @@ components:
           example: 12
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods)."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods)."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         currencyRate:
           type: number
@@ -9387,11 +9387,11 @@ components:
           example: 1.0
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         qrTypeId:
           type: integer
-          description: "QR type ID from the [QR type reference table](./reference-tables.md#qr-types)."
+          description: "QR type ID from the [QR type reference table](/en/reference-tables#qr-types)."
           example: 1
         note:
           type: [string, 'null']
@@ -9490,7 +9490,7 @@ components:
           example: '81101'
         countryId:
           type: [integer, 'null']
-          description: "Country ID from the [country reference table](./reference-tables.md#countries)."
+          description: "Country ID from the [country reference table](/en/reference-tables#countries)."
           example: 703
         hasDeliveryAddress:
           description: Optional delivery address flag. If omitted, the backend can infer it from the delivery address fields.
@@ -9513,7 +9513,7 @@ components:
           example: '91701'
         deliveryCountryId:
           type: [integer, 'null']
-          description: "Country ID of the delivery address from the [country reference table](./reference-tables.md#countries)."
+          description: "Country ID of the delivery address from the [country reference table](/en/reference-tables#countries)."
           example: 703
     InvoiceInput:
       description: >-
@@ -9614,15 +9614,15 @@ components:
           example: false
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods). Precedence is payload → client default → company document settings."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods). Precedence is payload → client default → company document settings."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods). Precedence is payload → client default → company document settings."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods). Precedence is payload → client default → company document settings."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies). Precedence is payload → client default → company document settings."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies). Precedence is payload → client default → company document settings."
           example: 1
         currencyRate:
           description: Currency exchange rate against EUR. If omitted, the backend resolves it server-side from `currencyId` and `deliveryDate`. If the final document currency is `EUR`, the backend always stores and returns `1.0`.
@@ -9633,11 +9633,11 @@ components:
           example: 1.0
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages). Precedence is payload → client default → company document settings."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages). Precedence is payload → client default → company document settings."
           example: 1
         qrTypeId:
           type: integer
-          description: "QR type ID from the [QR type reference table](./reference-tables.md#qr-types). If omitted, the company document settings value is used."
+          description: "QR type ID from the [QR type reference table](/en/reference-tables#qr-types). If omitted, the company document settings value is used."
           example: 1
         note:
           description: Note shown on the document. Precedence is payload → client default → company document settings.
@@ -9748,11 +9748,11 @@ components:
           example: false
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods)."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods)."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies)."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies)."
           example: 1
         currencyRate:
           description: Currency exchange rate against EUR. If the document currency is `EUR`, the backend always stores and returns `1.0`.
@@ -9763,7 +9763,7 @@ components:
           example: 1.0
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages)."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages)."
           example: 1
         note:
           description: Note shown on the document.
@@ -9913,23 +9913,23 @@ components:
           example: false
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods). Precedence is payload → client default → company document settings."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods). Precedence is payload → client default → company document settings."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods). Precedence is payload → client default → company document settings."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods). Precedence is payload → client default → company document settings."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies). Precedence is payload → client default → company document settings."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies). Precedence is payload → client default → company document settings."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages). Precedence is payload → client default → company document settings."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages). Precedence is payload → client default → company document settings."
           example: 1
         qrTypeId:
           type: integer
-          description: "QR type ID from the [QR type reference table](./reference-tables.md#qr-types). If omitted, the company document settings value is used."
+          description: "QR type ID from the [QR type reference table](/en/reference-tables#qr-types). If omitted, the company document settings value is used."
           example: 1
         note:
           description: Note shown on the document. Precedence is payload → client default → company document settings.
@@ -10056,7 +10056,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units). Required for a manual item. With `priceListItemId`, it may override the unit from the price list item."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units). Required for a manual item. With `priceListItemId`, it may override the unit from the price list item."
           type: [integer, 'null']
           example: 1
         quantity:
@@ -10159,19 +10159,19 @@ components:
           example: false
         deliveryMethodId:
           type: integer
-          description: "Delivery method ID from the [delivery method reference table](./reference-tables.md#delivery-methods). Resolution priority is payload -> client preference -> company document settings."
+          description: "Delivery method ID from the [delivery method reference table](/en/reference-tables#delivery-methods). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         paymentMethodId:
           type: integer
-          description: "Payment method ID from the [payment method reference table](./reference-tables.md#payment-methods). Resolution priority is payload -> client preference -> company document settings."
+          description: "Payment method ID from the [payment method reference table](/en/reference-tables#payment-methods). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies). Resolution priority is payload -> client preference -> company document settings."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages). Resolution priority is payload -> client preference -> company document settings."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         note:
           description: Document note. Resolution priority is payload -> client preference -> company document settings.
@@ -10241,7 +10241,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "Unit ID from the [unit reference table](./reference-tables.md#units). Required for manual items. When using `priceListItemId`, this can override the hydrated unit."
+          description: "Unit ID from the [unit reference table](/en/reference-tables#units). Required for manual items. When using `priceListItemId`, this can override the hydrated unit."
           type: [integer, 'null']
           example: 1
         quantity:
@@ -10346,11 +10346,11 @@ components:
           example: false
         currencyId:
           type: integer
-          description: "Currency ID from the [currency reference table](./reference-tables.md#currencies). Resolution priority is payload -> client preference -> company document settings."
+          description: "Currency ID from the [currency reference table](/en/reference-tables#currencies). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         languageId:
           type: integer
-          description: "Language ID from the [language reference table](./reference-tables.md#languages). Resolution priority is payload -> client preference -> company document settings."
+          description: "Language ID from the [language reference table](/en/reference-tables#languages). Resolution priority is payload -> client preference -> company document settings."
           example: 1
         note:
           description: Document note. Resolution priority is payload -> client preference -> company document settings.

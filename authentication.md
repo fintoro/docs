@@ -2,10 +2,7 @@
 title: "Autentifikácia"
 ---
 
-# Autentifikácia
-
 Fintoro Public API používa bearer tokeny. Token je vždy vydaný pre konkrétnu firmu.
-
 ## Hlavička Authorization
 
 Každý request posielajte s hlavičkou `Authorization: Bearer <company-token>`.
@@ -18,7 +15,7 @@ curl --request GET \
   --header 'Accept: application/json'
 ```
 
-`Accept-Language` je voliteľný header pre ktorýkoľvek Public API request. Lokalizuje systémové názvy vo fixných lookupoch aj v rovnakých vnorených lookup objektoch v response-och a ovplyvňuje aj validačné chyby. Podporované tagy a fallback pravidlá nájdete v [Konvenciách API](./conventions.md). User-generated dáta tým nemeníte.
+`Accept-Language` je voliteľný header pre ktorýkoľvek Public API request. Lokalizuje systémové názvy vo fixných lookupoch aj v rovnakých vnorených lookup objektoch v response-och a ovplyvňuje aj validačné chyby. Podporované tagy a fallback pravidlá nájdete v [Konvenciách API](/conventions). User-generated dáta tým nemeníte.
 
 ## Model oprávnení
 

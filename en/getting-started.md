@@ -2,10 +2,7 @@
 title: "Getting started"
 ---
 
-# Getting started
-
 Use this guide to make the first authenticated request to Fintoro Public API. The goal is to verify the token and your orientation in the rest of the documentation without repeating every operational rule here.
-
 ## 1. Create a token or sandbox company
 
 In Fintoro, open `Integrations > Public API`.
@@ -36,8 +33,8 @@ If the request returns `200 OK`, you have validated the host and token.
 1. Create a token with the lowest scope that still fits the use case.
 2. Load the lookups and reference tables required for your payloads.
 3. Verify read scenarios in the production or sandbox company.
-4. If you need to react to changes continuously, implement [Webhooks](./webhooks.md). Use polling at most for the initial import or reconciliation checks.
-5. Before the first write flow, review [API conventions](./conventions.md) and [Errors, rate limits, and retries](./errors-and-idempotency.md).
+4. If you need to react to changes continuously, implement [Webhooks](/en/webhooks). Use polling at most for the initial import or reconciliation checks.
+5. Before the first write flow, review [API conventions](/en/conventions) and [Errors, rate limits, and retries](/en/errors-and-idempotency).
 
 ## 4. Review the basic decisions
 
@@ -49,9 +46,9 @@ If the request returns `200 OK`, you have validated the host and token.
 
 ## Further reading
 
-- [Authentication](./authentication.md)
-- [Sandbox testing](./sandbox-testing.md)
-- [Webhooks](./webhooks.md)
-- [API conventions](./conventions.md)
-- [Errors, rate limits, and retries](./errors-and-idempotency.md)
-- [API reference](./api-reference/index.mdx)
+- [Authentication](/en/authentication)
+- [Sandbox testing](/en/sandbox-testing)
+- [Webhooks](/en/webhooks)
+- [API conventions](/en/conventions)
+- [Errors, rate limits, and retries](/en/errors-and-idempotency)
+- [API reference](/en/api-reference)
