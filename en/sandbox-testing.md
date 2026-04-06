@@ -13,7 +13,7 @@ Sandbox companies are used for isolated Fintoro API testing. They do not use a s
 
 ## Where to create a sandbox company
 
-In Fintoro, open the production company and go to `Integrations > Public API`. In the current UI, this section still uses the original label, but this is where you manage Fintoro API tokens and sandbox companies. There you can create sandbox companies for a specific integration scenario, partner, or testing environment.
+In Fintoro, open the production company and go to the integrations area for Fintoro API. This is where you manage tokens and sandbox companies. There you can create sandbox companies for a specific integration scenario, partner, or testing environment.
 
 We recommend creating a separate sandbox company for each larger integration scenario or partner.
 

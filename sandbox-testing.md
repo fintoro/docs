@@ -13,7 +13,7 @@ Sandboxové firmy slúžia na izolované testovanie Fintoro API. Nepoužívajú 
 
 ## Kde sandbox firmu vytvoriť
 
-Vo Fintoro otvorte produkčnú firmu a prejdite do `Integrácie > Public API`. V rozhraní je táto sekcia zatiaľ označená pôvodným názvom, no práve tu spravujete Fintoro API tokeny aj sandboxové firmy. Tam si vytvoríte sandboxové firmy pre konkrétne integračné scenáre, partnerov alebo testovacie prostredia.
+Vo Fintoro otvorte produkčnú firmu a prejdite do sekcie integrácií pre Fintoro API. Práve tu spravujete tokeny aj sandboxové firmy. Tam si vytvoríte sandboxové firmy pre konkrétne integračné scenáre, partnerov alebo testovacie prostredia.
 
 Odporúčame vytvoriť samostatnú sandboxovú firmu pre každý väčší integračný scenár alebo partnera.
 

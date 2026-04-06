@@ -42,4 +42,4 @@ Odporúčame používať najnižší rozsah oprávnení, ktorý integrácia potr
 
 ## Kde tokeny spravovať
 
-Tokeny spravujete vo Fintoro v sekcii `Integrácie > Public API`. Na rovnakom mieste v produkčnej firme vytvoríte aj sandboxové firmy a následne pre ne spravujete tokeny sandboxovej firmy.
+Tokeny spravujete vo Fintoro v sekcii integrácií pre Fintoro API. Na rovnakom mieste v produkčnej firme vytvoríte aj sandboxové firmy a následne pre ne spravujete tokeny sandboxovej firmy.

@@ -5,7 +5,7 @@ title: "Getting started"
 Use this guide to make the first authenticated request to Fintoro API. The goal is to verify the token and your orientation in the rest of the documentation without repeating every operational rule here.
 ## 1. Create a token or sandbox company
 
-In Fintoro, open `Integrations > Public API`. In the current UI, this section still uses the original label, but it is where you manage Fintoro API tokens and sandbox companies.
+In Fintoro, open the integrations area for Fintoro API. This is where you manage tokens and sandbox companies.
 
 - In the production company, create tokens for real integration traffic.
 - Under the production company, create multiple sandbox companies for isolated testing.

@@ -5,7 +5,7 @@ title: "Začíname"
 Táto príručka slúži na prvé pripojenie k Fintoro API. Cieľom je overiť, že máte správny token a viete sa zorientovať v ďalších sekciách dokumentácie bez toho, aby sa tu znovu opakovali všetky prevádzkové pravidlá.
 ## 1. Vytvorte token alebo sandbox firmu
 
-Vo Fintoro otvorte `Integrácie > Public API`. V rozhraní je táto sekcia zatiaľ označená pôvodným názvom, no ide o správu Fintoro API tokenov a sandboxových firiem.
+Vo Fintoro otvorte sekciu integrácií pre Fintoro API. Práve tam spravujete tokeny aj sandboxové firmy.
 
 - V produkčnej firme si vytvoríte tokeny pre reálne integračné volania.
 - Pod produkčnou firmou si môžete vytvoriť viacero sandboxových firiem pre izolované testovanie.

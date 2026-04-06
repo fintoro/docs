@@ -42,4 +42,4 @@ Use the lowest scope required by the integration.
 
 ## Where token management lives
 
-Manage tokens in Fintoro under `Integrations > Public API`. In the same production-company screen you can also create sandbox companies and then manage sandbox company tokens for them.
+Manage tokens in Fintoro in the integrations area for Fintoro API. In the same production-company screen you can also create sandbox companies and then manage sandbox company tokens for them.
