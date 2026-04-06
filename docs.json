@@ -9,8 +9,8 @@
   },
   "favicon": "/favicon.ico",
   "logo": {
-    "light": "/images/fintoro-docs-dark.png",
-    "dark": "/images/fintoro-docs-light.png"
+    "light": "/images/fintoro-docs-logo-on-light.png",
+    "dark": "/images/fintoro-docs-logo-on-dark.png"
   },
   "seo": {
     "title": "Fintoro Public API dokumentácia",
