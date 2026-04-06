@@ -4,6 +4,7 @@
 - Predvolené jazykové vetvy:
   - koreň repo = slovenský obsah,
   - `en/` = anglický obsah.
+- SK a EN vetvu udržiavaj obsahovo v syncu. Ak meníš jednu, default je upraviť aj druhú, pokiaľ user explicitne nepovie inak.
 - Mintlify nepodporuje locale code `sk`, preto je slovenská vetva v natívnom language switcheri dočasne vedená ako `cs`.
 - OpenAPI source of truth v tomto repo:
   - `openapi.yaml`
@@ -11,6 +12,10 @@
 - Human guide pages udržiavaj v oboch jazykoch obsahovo zladené.
 - Keď meníš navigáciu alebo branding, uprav `docs.json`.
 - Keď meníš guide page linky, preferuj interné Mintlify routy pred odkazom na raw YAML súbor.
+- Keď meníš docs v tomto repo, povinne pusti:
+  - `npx mint validate`
+  - `npx mint broken-links`
+- Po úspešných checkoch sprav commit v docs repo.
 - Lokálne preview:
   - `mint dev`
   - `mint broken-links`
