@@ -3,13 +3,13 @@ title: "Chyby, rate limiting a retry správanie"
 sidebarTitle: "Chyby, limity a retry"
 ---
 
-Táto kapitola vysvetľuje, aké chybové stavy môže Public API vracať, ako funguje rate limiting a kedy je retry bezpečný. Nájdete tu aj pravidlá pre `Idempotency-Key`, `X-Request-Id` a retry alebo deduplikáciu webhookov.
+Táto kapitola vysvetľuje, aké chybové stavy môže Fintoro API vracať, ako funguje rate limiting a kedy je retry bezpečný. Nájdete tu aj pravidlá pre `Idempotency-Key`, `X-Request-Id` a retry alebo deduplikáciu webhookov.
 ## HTTP chyby a error responses
 
 - `401` alebo iná auth chyba znamená, že request nemá použiteľný bearer token. Typicky ide o chýbajúci, neplatný alebo revokovaný token.
 - `403` znamená, že token alebo firma nemá oprávnenie na danú operáciu.
 - `404` znamená, že resource v aktuálnom firemnom kontexte neexistuje.
-- `429` znamená, že firma prekročila public API rate limit.
+- `429` znamená, že firma prekročila Fintoro API rate limit.
 - `422` znamená validačnú chybu request payloadu alebo query parametrov.
 - `500` znamená neočakávanú internú chybu.
 - `503` znamená dočasne nedostupnú službu alebo závislosť.
@@ -20,7 +20,7 @@ Chybové odpovede na všetkých endpointoch pod `/api/public/*` vraciame ako JSO
 
 ## Rate limiting
 
-- Public API štandardne obmedzujeme na `120 requestov za minútu na firmu`.
+- Fintoro API štandardne obmedzujeme na `120 requestov za minútu na firmu`.
 - Limit sa počíta na úrovni firmy, nie na úrovni jednotlivých tokenov. Viac tokenov tej istej firmy teda zdieľa jeden spoločný budget.
 - Všetky throttled endpointy vracajú hlavičky `X-RateLimit-Limit` a `X-RateLimit-Remaining` aj pri úspešných response-och.
 - Pri prekročení limitu vraciame `429 Too Many Requests`; táto odpoveď nesie tie isté `X-RateLimit-Limit` a `X-RateLimit-Remaining` hlavičky a navyše pridáva `Retry-After` a `X-RateLimit-Reset`.

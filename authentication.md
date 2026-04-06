@@ -2,7 +2,7 @@
 title: "Autentifikácia"
 ---
 
-Fintoro Public API používa bearer tokeny. Token je vždy vydaný pre konkrétnu firmu.
+Fintoro API používa bearer tokeny. Token je vždy vydaný pre konkrétnu firmu.
 ## Hlavička Authorization
 
 Každý request posielajte s hlavičkou `Authorization: Bearer <company-token>`.
@@ -15,7 +15,7 @@ curl --request GET \
   --header 'Accept: application/json'
 ```
 
-`Accept-Language` je voliteľný header pre ktorýkoľvek Public API request. Lokalizuje systémové názvy vo fixných lookupoch aj v rovnakých vnorených lookup objektoch v response-och a ovplyvňuje aj validačné chyby. Podporované tagy a fallback pravidlá nájdete v [Konvenciách API](/conventions). User-generated dáta tým nemeníte.
+`Accept-Language` je voliteľný header pre ktorýkoľvek Fintoro API request. Lokalizuje systémové názvy vo fixných lookupoch aj v rovnakých vnorených lookup objektoch v response-och a ovplyvňuje aj validačné chyby. Podporované tagy a fallback pravidlá nájdete v [Konvenciách API](/conventions). User-generated dáta tým nemeníte.
 
 ## Model oprávnení
 
@@ -35,10 +35,10 @@ Odporúčame používať najnižší rozsah oprávnení, ktorý integrácia potr
 ## Praktické bezpečnostné pravidlá
 
 - Token si po vygenerovaní bezpečne uložte. Hodnota v otvorenej podobe sa zobrazí len pri vytvorení.
-- Webhook secret nie je bearer token. Ukladajte ho oddelene a nikdy ho nepoužívajte na autorizáciu Public API requestov.
+- Webhook secret nie je bearer token. Ukladajte ho oddelene a nikdy ho nepoužívajte na autorizáciu Fintoro API requestov.
 - Nepoužívajte jeden token pre viac rôznych integrácií, ak ich viete oddeliť.
 - Tokeny pomenujte podľa systému alebo partnera, aby sa dali dobre auditovať.
-- Nepoužívané alebo kompromitované tokeny revokujte. Revokovaný token okamžite prestane fungovať v Public API a ďalšie requesty skončia na `401 Unauthenticated.`, ale token aj jeho auditná stopa zostanú vo Fintoro dohľadateľné.
+- Nepoužívané alebo kompromitované tokeny revokujte. Revokovaný token okamžite prestane fungovať v Fintoro API a ďalšie requesty skončia na `401 Unauthenticated.`, ale token aj jeho auditná stopa zostanú vo Fintoro dohľadateľné.
 
 ## Kde tokeny spravovať
 

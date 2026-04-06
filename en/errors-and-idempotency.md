@@ -3,13 +3,13 @@ title: "Errors, rate limits, and retries"
 sidebarTitle: "Errors and idempotency"
 ---
 
-This page explains which error states the Public API can return, how rate limiting works, and when retries are safe. It also covers `Idempotency-Key`, `X-Request-Id`, and webhook retry and deduplication behavior.
+This page explains which error states the Fintoro API can return, how rate limiting works, and when retries are safe. It also covers `Idempotency-Key`, `X-Request-Id`, and webhook retry and deduplication behavior.
 ## HTTP errors and error responses
 
 - `401` or another auth failure means the request does not have a usable bearer token. Typical causes are a missing, invalid, or revoked token.
 - `403` means the token or company does not have permission for the operation.
 - `404` means the resource does not exist in the current company context.
-- `429` means the company exceeded the Public API rate limit.
+- `429` means the company exceeded the Fintoro API rate limit.
 - `422` means the request payload or query parameters failed validation.
 - `500` means an unexpected internal error.
 - `503` means a temporary service or dependency outage.
@@ -20,7 +20,7 @@ Error responses for all endpoints under `/api/public/*` are returned as JSON eve
 
 ## Rate limiting
 
-- Public API uses a default limit of `120 requests per minute per company`.
+- Fintoro API uses a default limit of `120 requests per minute per company`.
 - The limit is evaluated at the company level, not per token. Multiple tokens issued for the same company therefore share one rate-limit budget.
 - All throttled endpoints return the `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers even on successful responses.
 - When the limit is exceeded, the API returns `429 Too Many Requests`; that response includes the same `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers and additionally adds `Retry-After` and `X-RateLimit-Reset`.

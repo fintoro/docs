@@ -2,8 +2,8 @@
 title: "Webhooky"
 ---
 
-Fintoro Public API podporuje odchádzajúce webhooky pre integrácie riadené udalosťami. Ak potrebujete na zmeny reagovať priebežne a držať externý systém zosynchronizovaný s čo najmenším oneskorením, webhooky sú správny mechanizmus. Fintoro Vám odošle HTTP `POST` request vždy, keď nastane vybraná obchodná udalosť.
-Webhooky v Public API sú navrhnuté ako tenký trigger, nie ako paralelný snapshot API. Payload doručenia vždy obsahuje len identitu udalosti, jej typ a odkaz na resource cez `resource.type` + `resource.id`. Detail si následne dotiahnete z Public API vo verzii, ktorú používa Vaša integrácia.
+Fintoro API podporuje odchádzajúce webhooky pre integrácie riadené udalosťami. Ak potrebujete na zmeny reagovať priebežne a držať externý systém zosynchronizovaný s čo najmenším oneskorením, webhooky sú správny mechanizmus. Fintoro Vám odošle HTTP `POST` request vždy, keď nastane vybraná obchodná udalosť.
+Webhooky v Fintoro API sú navrhnuté ako tenký trigger, nie ako paralelný snapshot API. Payload doručenia vždy obsahuje len identitu udalosti, jej typ a odkaz na resource cez `resource.type` + `resource.id`. Detail si následne dotiahnete z Fintoro API vo verzii, ktorú používa Vaša integrácia.
 
 ## Kedy webhooky použiť
 
@@ -11,11 +11,11 @@ Webhooky v Public API sú navrhnuté ako tenký trigger, nie ako paralelný snap
 - keď si chcete lokálnu cache alebo downstream systém synchronizovať len pri reálnej zmene,
 - keď potrebujete oddeliť prijatie udalosti od následného načítania detailu resource-u.
 
-Odporúčaný model je: webhook prijmete, overíte podpis, uložíte `webhook-id` na deduplikáciu a až potom si načítate detail resource-u z Public API. Periodické dotazovanie nechajte len ako backfill alebo kontrolný fallback, nie ako primárny trigger zmien.
+Odporúčaný model je: webhook prijmete, overíte podpis, uložíte `webhook-id` na deduplikáciu a až potom si načítate detail resource-u z Fintoro API. Periodické dotazovanie nechajte len ako backfill alebo kontrolný fallback, nie ako primárny trigger zmien.
 
 ## Správa odberov
 
-Odbery webhookov spravujete priamo cez Public API. Secret v otvorenej podobe sa zobrazí iba pri vytvorení odberu alebo pri jeho manuálnej rotácii. Presný CRUD kontrakt, request schémy a response payloady nájdete priamo v [Webhook API referencii](/api-reference).
+Odbery webhookov spravujete priamo cez Fintoro API. Secret v otvorenej podobe sa zobrazí iba pri vytvorení odberu alebo pri jeho manuálnej rotácii. Presný CRUD kontrakt, request schémy a response payloady nájdete priamo v [Webhook API referencii](/api-reference).
 
 Prakticky to znamená:
 
@@ -58,7 +58,7 @@ Payload webhooku je zámerne tenký:
 | `type` | `string` | Názov obchodnej udalosti, napríklad `clients.created` alebo `orders.deleted`. |
 | `occurredAt` | `string` | ISO 8601 timestamp v UTC, kedy udalosť vznikla vo Fintoro. |
 | `resource.type` | `string` | Typ resource-u, napríklad `invoice`, `client` alebo `warehouseOutboundReceipt`. |
-| `resource.id` | `integer` | ID resource-u vo Fintoro. Detail si podľa neho načítate z Public API. |
+| `resource.id` | `integer` | ID resource-u vo Fintoro. Detail si podľa neho načítate z Fintoro API. |
 
 Payload neobsahuje:
 
@@ -255,7 +255,7 @@ Odporúčaný integračný flow:
 1. prijmite webhook a overte podpis,
 2. deduplikujte podľa `webhook-id`,
 3. podľa `type` a `resource` určite, ktorý endpoint detailu potrebujete,
-4. detail si načítajte z Public API vo verzii, ktorú používa Vaša integrácia,
+4. detail si načítajte z Fintoro API vo verzii, ktorú používa Vaša integrácia,
 5. business logiku robte až nad načítaným detailom.
 
 Príklady:

@@ -2,8 +2,8 @@
 title: "Webhooks"
 ---
 
-Fintoro Public API supports outbound webhooks for event-driven integrations. If you need to react to changes continuously and keep an external system synchronized with minimal delay, webhooks are the right mechanism. Fintoro sends an HTTP `POST` request whenever one of the selected business events occurs.
-In Public API, webhooks are designed as a thin trigger, not as a parallel snapshot API. The delivery payload always contains only the event identity, the event type, and a pointer to the resource through `resource.type` + `resource.id`. Your integration then fetches the full resource detail from the Public API version it already uses.
+Fintoro API supports outbound webhooks for event-driven integrations. If you need to react to changes continuously and keep an external system synchronized with minimal delay, webhooks are the right mechanism. Fintoro sends an HTTP `POST` request whenever one of the selected business events occurs.
+In Fintoro API, webhooks are designed as a thin trigger, not as a parallel snapshot API. The delivery payload always contains only the event identity, the event type, and a pointer to the resource through `resource.type` + `resource.id`. Your integration then fetches the full resource detail from the Fintoro API version it already uses.
 
 ## When to use webhooks
 
@@ -11,11 +11,11 @@ In Public API, webhooks are designed as a thin trigger, not as a parallel snapsh
 - when you want to keep a local cache or downstream system in sync only after a real change,
 - when you want to separate event reception from the later fetch of the resource detail.
 
-The recommended model is: receive the webhook, verify the signature, store `webhook-id` for deduplication, and only then fetch the resource detail from Public API. Leave polling only as a backfill or reconciliation fallback, not as the primary trigger for change handling.
+The recommended model is: receive the webhook, verify the signature, store `webhook-id` for deduplication, and only then fetch the resource detail from Fintoro API. Leave polling only as a backfill or reconciliation fallback, not as the primary trigger for change handling.
 
 ## Subscription management
 
-Manage webhook subscriptions directly through the Public API. The plaintext secret is only returned when the subscription is created or when you rotate it manually. For the exact CRUD contract, request schemas, and response payloads, use the [Webhook API reference](/en/api-reference).
+Manage webhook subscriptions directly through the Fintoro API. The plaintext secret is only returned when the subscription is created or when you rotate it manually. For the exact CRUD contract, request schemas, and response payloads, use the [Webhook API reference](/en/api-reference).
 
 In practice:
 
@@ -58,7 +58,7 @@ The webhook payload is intentionally thin:
 | `type` | `string` | Business event name, for example `clients.created` or `orders.deleted`. |
 | `occurredAt` | `string` | ISO 8601 timestamp in UTC representing when the event happened in Fintoro. |
 | `resource.type` | `string` | Resource type such as `invoice`, `client`, or `warehouseOutboundReceipt`. |
-| `resource.id` | `integer` | Resource ID in Fintoro. Use it to fetch the detail from Public API. |
+| `resource.id` | `integer` | Resource ID in Fintoro. Use it to fetch the detail from Fintoro API. |
 
 The payload does not include:
 
@@ -255,7 +255,7 @@ Recommended integration flow:
 1. receive the webhook and verify the signature,
 2. deduplicate by `webhook-id`,
 3. determine the correct detail endpoint from `type` and `resource`,
-4. fetch the resource detail from the Public API version used by your integration,
+4. fetch the resource detail from the Fintoro API version used by your integration,
 5. run business logic only on the fetched detail.
 
 Examples:

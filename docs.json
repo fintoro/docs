@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "Fintoro Public API",
+  "name": "Fintoro API",
   "colors": {
     "primary": "#8E51FF",
     "light": "#A78BFA",
@@ -13,8 +13,8 @@
     "dark": "/images/fintoro-docs-logo-on-dark.png"
   },
   "seo": {
-    "title": "Fintoro Public API dokumentácia",
-    "description": "Public API dokumentácia pripravená na produkčné integrácie s Fintoro.",
+    "title": "Fintoro API dokumentácia",
+    "description": "Fintoro API dokumentácia pripravená na produkčné integrácie s Fintoro.",
     "image": "/images/og-image.png"
   },
   "navigation": {

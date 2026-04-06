@@ -2,23 +2,23 @@
 title: "API conventions"
 ---
 
-This section summarizes the rules that repeat across Public API v1.
+This section summarizes the rules that repeat across Fintoro API v1.
 ## Requests
 
-- The Public API uses JSON request and response payloads.
-- Business payloads in Public API v1 use camelCase field names.
+- The Fintoro API uses JSON request and response payloads.
+- Business payloads in Fintoro API v1 use camelCase field names.
 - All requests are company-scoped through the bearer token.
 - On create operations, we recommend using `Idempotency-Key`. It is not required, but it makes the integration safer, helps prevent duplicates during retries, and makes write flows more robust.
-- You can send the optional `Accept-Language` header with any Public API request.
+- You can send the optional `Accept-Language` header with any Fintoro API request.
 
 ## Response localization
 
-- `Accept-Language` is evaluated across the entire Public API.
+- `Accept-Language` is evaluated across the entire Fintoro API.
 - The header localizes fixed lookups and the same system-owned objects when they are returned as nested objects in list, detail, create, or update responses.
 - Typical examples are countries, currencies, delivery methods, and similar system-owned lookups.
 - User-generated data is not localized, for example client names, supplier names, warehouse names, or free-text notes.
 - Validation errors use the same header. When a dedicated validation translation is not available for the requested language, validation errors fall back to English. Czech requests fall back to Slovak.
-- If the header is missing or unsupported, the response is returned in the default language of the Fintoro Public API.
+- If the header is missing or unsupported, the response is returned in the default language of the Fintoro API.
 - The response returns `Content-Language` with the language selected for the request.
 
 Supported request language tags:
@@ -55,7 +55,7 @@ Supported request language tags:
 
 - If you need to react to create, update, or delete events and keep an external system continuously synchronized, implement webhooks.
 - Polling is not the recommended mechanism for change detection. Use it only for the initial import, post-incident backfills, or reconciliation checks.
-- The recommended model is: use the webhook as the trigger and then fetch the full resource detail through Public API.
+- The recommended model is: use the webhook as the trigger and then fetch the full resource detail through Fintoro API.
 - Webhook payloads intentionally do not return the entire resource snapshot. The source of truth for detail remains the API reference of the specific endpoint.
 - For delete events, assume that the detail endpoint may no longer return the deleted resource.
 
@@ -74,5 +74,5 @@ Supported request language tags:
 
 ## Versioning and contract
 
-- This documentation describes Public API v1 under `/api/public/v1`.
+- This documentation describes Fintoro API v1 under `/api/public/v1`.
 - If you need the exact payload shape, enums, or validation rules, the source of truth is the [API reference](/en/api-reference).

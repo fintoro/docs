@@ -2,23 +2,23 @@
 title: "Konvencie API"
 ---
 
-Táto sekcia zhŕňa pravidlá, ktoré sa opakujú naprieč Public API v1.
+Táto sekcia zhŕňa pravidlá, ktoré sa opakujú naprieč Fintoro API v1.
 ## Requesty
 
-- Public API používa JSON requesty a JSON response payloady.
-- Business payloady v Public API v1 používajú názvy polí v camelCase.
+- Fintoro API používa JSON requesty a JSON response payloady.
+- Business payloady v Fintoro API v1 používajú názvy polí v camelCase.
 - Všetky requesty sú cez bearer token viazané na konkrétnu firmu.
 - Pri create operáciách odporúčame používať `Idempotency-Key`. Nie je povinný, ale výrazne zvyšuje bezpečnosť integrácie, pomáha predchádzať duplicitám pri opakovaných pokusoch a robí zápisové scenáre robustnejšími.
-- Voliteľný header `Accept-Language` môžete poslať pri ktoromkoľvek Public API requeste.
+- Voliteľný header `Accept-Language` môžete poslať pri ktoromkoľvek Fintoro API requeste.
 
 ## Lokalizácia odpovedí
 
-- `Accept-Language` sa vyhodnocuje naprieč celým Public API.
+- `Accept-Language` sa vyhodnocuje naprieč celým Fintoro API.
 - Hlavička lokalizuje fixné lookupy a rovnaké systémové objekty, keď sa vracajú vnorené v list, detail, create alebo update odpovediach.
 - Typicky ide o krajiny, meny, spôsoby dodania a ďalšie podobné systémové lookupy.
 - Nelokalizujú sa používateľské dáta, napríklad názvy klientov, dodávateľov, skladov alebo textové poznámky.
 - Validačné chyby používajú rovnaký header. Ak pre zvolený jazyk nie je dostupná vlastná validačná sada, validačné chyby fallbackujú do angličtiny. Pri češtine fallbackujú do slovenčiny.
-- Ak hlavičku nepošlete alebo pošlete nepodporovanú hodnotu, odpoveď sa vráti v predvolenom jazyku Fintoro Public API.
+- Ak hlavičku nepošlete alebo pošlete nepodporovanú hodnotu, odpoveď sa vráti v predvolenom jazyku Fintoro API.
 - Response vracia `Content-Language` s jazykom vybraným pre request.
 
 Podporované request language tagy:
@@ -55,7 +55,7 @@ Podporované request language tagy:
 
 - Ak potrebujete reagovať na create, update alebo delete udalosti a držať externý systém priebežne zosynchronizovaný, implementujte webhooky.
 - Periodické dotazovanie nie je odporúčaný mechanizmus na detekciu zmien. Používajte ho len na prvotný import, backfill po incidente alebo kontrolné dorovnanie.
-- Odporúčaný model je: webhook použijete ako trigger a detail resource-u si následne načítate cez Public API.
+- Odporúčaný model je: webhook použijete ako trigger a detail resource-u si následne načítate cez Fintoro API.
 - Webhook payloady zámerne nevracajú celý snapshot resource-u. Zdrojom pravdy pre detail zostáva API referencia konkrétneho endpointu.
 - Pri delete eventoch rátajte s tým, že detail endpoint už nemusí resource vrátiť.
 
@@ -74,5 +74,5 @@ Podporované request language tagy:
 
 ## Verzovanie a kontrakt
 
-- Táto dokumentácia popisuje Public API v1 pod `/api/public/v1`.
+- Táto dokumentácia popisuje Fintoro API v1 pod `/api/public/v1`.
 - Ak potrebujete presnú podobu payloadu, enumov alebo validačných pravidiel, zdrojom pravdy je [API referencia](/api-reference).

@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
-  title: Fintoro Public API v1
+  title: Fintoro API v1
   version: "1.0.0"
   description: |
-    Fintoro Public API v1 je REST API pre integráciu Fintoro fakturácie, CRM a skladového systému do systémov tretích strán.
+    Fintoro API v1 je REST API pre integráciu Fintoro fakturácie, CRM a skladového systému do systémov tretích strán.
 
     Produkčné aj sandboxové firmy používajú rovnakú základnú URL `https://app.fintoro.sk/api/public/v1`. O tom, s ktorou firmou pracujete, rozhoduje bearer token.
 
@@ -18,7 +18,7 @@ info:
     - [Chyby a idempotencia](/errors-and-idempotency)
 servers:
   - url: https://app.fintoro.sk/api/public/v1
-    description: Produkčné Public API.
+    description: Produkčné Fintoro API.
 security:
   - bearerAuth: []
 x-tagGroups:
@@ -73,7 +73,7 @@ tags:
   - name: Bankové účty
     description: Správa bankových účtov vrátane údajov o banke, primárnom účte a stave open banking napojenia. Create, update a delete operácie môžu emitovať webhook eventy `bank-accounts.created`, `bank-accounts.updated` a `bank-accounts.deleted`.
   - name: Webhooky
-    description: Správa odberov webhookov pre Public API. Táto sekcia pokrýva CRUD operácie nad odbermi, manuálnu rotáciu secretu a payload kontrakt pre integrácie riadené udalosťami. Kontrakt doručenia, overenie podpisu, retry mechanizmus a podrobný katalóg eventov nájdete v [príručke Webhooky](/webhooks).
+    description: Správa odberov webhookov pre Fintoro API. Táto sekcia pokrýva CRUD operácie nad odbermi, manuálnu rotáciu secretu a payload kontrakt pre integrácie riadené udalosťami. Kontrakt doručenia, overenie podpisu, retry mechanizmus a podrobný katalóg eventov nájdete v [príručke Webhooky](/webhooks).
   - name: Sklady
     description: CRUD operácie nad skladmi vrátane inbound a outbound číselných radov. Create, update a delete operácie môžu emitovať webhook eventy `warehouses.created`, `warehouses.updated` a `warehouses.deleted`.
   - name: Skladové príjemky
@@ -109,7 +109,7 @@ tags:
       stane plne uhradeným, môže sa vyemitovať aj `credit-notes.paid`.
   - name: Zálohové faktúry
     description: >-
-      CRUD operácie nad zálohovými faktúrami. Kontrakt je navrhnutý rovnakou filozofiou ako public API faktúry:
+      CRUD operácie nad zálohovými faktúrami. Kontrakt je navrhnutý rovnakou filozofiou ako Fintoro API faktúry:
       camelCase payloady, deterministický resolve/create klienta, create-like defaulty a plný `PUT` update flow bez patch fallbacku
       na pôvodný stav dokladu. Create, update a delete operácie môžu emitovať webhook eventy `proformas.created`, `proformas.updated`,
       `proformas.deleted` a pri plnom uhradení po zaevidovaní úhrady aj `proformas.paid`.
@@ -2010,7 +2010,7 @@ paths:
       tags: [Sklady]
       summary: Upraviť sklad
       operationId: updateWarehouse
-      description: Aktualizuje sklad. Public API používa plný `PUT` kontrakt, preto pošlite celý payload skladu vrátane číselných radov.
+      description: Aktualizuje sklad. Fintoro API používa plný `PUT` kontrakt, preto pošlite celý payload skladu vrátane číselných radov.
       requestBody:
         required: true
         content:
@@ -2221,7 +2221,7 @@ paths:
       summary: Upraviť skladovú príjemku
       operationId: updateWarehouseInboundReceipt
       description: >-
-        Aktualizuje existujúcu skladovú príjemku. Public API používa plný `PUT` kontrakt, preto
+        Aktualizuje existujúcu skladovú príjemku. Fintoro API používa plný `PUT` kontrakt, preto
         pošlite celé hlavičkové aj položkové dáta príjemky. Partner flow je rovnaký ako pri create:
         `supplierId` použije existujúceho dodávateľa, objekt `supplier` bez `supplierId` spustí resolve-or-create
         flow.
@@ -2460,7 +2460,7 @@ paths:
       summary: Upraviť skladovú výdajku
       operationId: updateWarehouseOutboundReceipt
       description: >-
-        Aktualizuje existujúcu skladovú výdajku. Public API používa plný `PUT` kontrakt a zachováva
+        Aktualizuje existujúcu skladovú výdajku. Fintoro API používa plný `PUT` kontrakt a zachováva
         rovnakú stock availability validáciu ako create flow. Partner flow je rovnaký ako pri create:
         `clientId` použije existujúceho klienta, objekt `client` bez `clientId` spustí resolve-or-create flow.
       requestBody:
@@ -2755,7 +2755,7 @@ paths:
       summary: Upraviť skladovú alebo cenníkovú položku
       operationId: updatePriceListItem
       description: >-
-        Aktualizuje skladovú alebo cenníkovú položku. Public API používa plný `PUT` kontrakt, preto pošlite celý
+        Aktualizuje skladovú alebo cenníkovú položku. Fintoro API používa plný `PUT` kontrakt, preto pošlite celý
         výsledný stav položky vrátane required business polí.
       requestBody:
         required: true
@@ -4032,7 +4032,7 @@ paths:
 
         ### Payload kontrakt
 
-        Na rozdiel od public API faktúr a zálohových faktúr ide o explicitný create flow bez smart defaultov. Pošlite kompletný business payload dokladu vrátane dátumov, bankového účtu, symbolov, meny a položiek.
+        Na rozdiel od Fintoro API faktúr a zálohových faktúr ide o explicitný create flow bez smart defaultov. Pošlite kompletný business payload dokladu vrátane dátumov, bankového účtu, symbolov, meny a položiek.
 
         Ak používate skladové alokácie na položkách, backend ich spracuje ako príjemové pohyby naviazané na dobropis.
 
@@ -5609,7 +5609,7 @@ components:
         example: en
   responses:
     Unauthorized:
-      description: Chýba, je neplatný alebo bol revokovaný bearer token pre public API.
+      description: Chýba, je neplatný alebo bol revokovaný bearer token pre Fintoro API.
       headers:
         X-Request-Id:
           $ref: '#/components/headers/XRequestId'
@@ -5675,7 +5675,7 @@ components:
                   items:
                     type: string
     TooManyRequests:
-      description: Firma prekročila public API rate limit. Táto 429 odpoveď nesie tie isté `X-RateLimit-Limit` a `X-RateLimit-Remaining` hlavičky ako ostatné throttled odpovede a navyše pridáva `Retry-After` a `X-RateLimit-Reset`. Ak potrebujete vyšší limit, kontaktujte info@fintoro.sk pre individuálne enterprise nastavenie.
+      description: Firma prekročila Fintoro API rate limit. Táto 429 odpoveď nesie tie isté `X-RateLimit-Limit` a `X-RateLimit-Remaining` hlavičky ako ostatné throttled odpovede a navyše pridáva `Retry-After` a `X-RateLimit-Reset`. Ak potrebujete vyšší limit, kontaktujte info@fintoro.sk pre individuálne enterprise nastavenie.
       headers:
         X-Request-Id:
           $ref: '#/components/headers/XRequestId'
@@ -5901,7 +5901,7 @@ components:
             - invoices.created
             - invoices.updated
     Country:
-      description: Krajina dostupná v lookup endpointoch public API a vo vnorených objektoch, kde sa krajina vracia priamo v response.
+      description: Krajina dostupná v lookup endpointoch Fintoro API a vo vnorených objektoch, kde sa krajina vracia priamo v response.
       type: object
       properties:
         id:
@@ -5921,7 +5921,7 @@ components:
           type: boolean
           example: true
     Language:
-      description: Jazyk dostupný v lookup endpointoch public API.
+      description: Jazyk dostupný v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -5937,7 +5937,7 @@ components:
           type: string
           example: sk
     Currency:
-      description: Mena dostupná v lookup endpointoch public API.
+      description: Mena dostupná v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -5957,7 +5957,7 @@ components:
           type: string
           example: €
     DeliveryMethod:
-      description: Spôsob dodania dostupný v lookup endpointoch public API.
+      description: Spôsob dodania dostupný v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -5969,7 +5969,7 @@ components:
           type: string
           example: Nezadaný
     PaymentMethod:
-      description: Spôsob úhrady dostupný v lookup endpointoch public API.
+      description: Spôsob úhrady dostupný v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -6108,7 +6108,7 @@ components:
           enum: [regular, reminder, overdue_reminder, confirmation]
           example: reminder
     QrType:
-      description: QR typ dostupný v lookup endpointoch public API.
+      description: QR typ dostupný v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -6120,7 +6120,7 @@ components:
           type: string
           example: Negenerovať
     Unit:
-      description: Jednotka dostupná v lookup endpointoch public API.
+      description: Jednotka dostupná v lookup endpointoch Fintoro API.
       type: object
       properties:
         id:
@@ -6748,7 +6748,7 @@ components:
             - type: 'null'
     ContactActivityLogMetadata:
       description: >-
-        Response metadata CRM udalosti prispôsobené pre public API. Pri dokladových typoch obsahujú live
+        Response metadata CRM udalosti prispôsobené pre Fintoro API. Pri dokladových typoch obsahujú live
         naviazaný doklad priamo v `relatedDocument` a pri snapshot sumách aj snapshot menu v
         `documentCurrencySnapshot`.
       type: object
@@ -6808,7 +6808,7 @@ components:
           enum: [note, email, phone_call, document_linked, document_created, document_updated, document_deleted, document_payment_added]
           example: note
         metadata:
-          description: Metadata CRM udalosti pripravené pre public API response.
+          description: Metadata CRM udalosti pripravené pre Fintoro API response.
           $ref: '#/components/schemas/ContactActivityLogMetadata'
         attachments:
           type: array
@@ -7013,7 +7013,7 @@ components:
           type: [string, 'null']
           example: '2026-03-03 15:45:00'
     Bank:
-      description: Banka dostupná v lookup endpointoch public API. Ide o stabilný lookup dataset, v ktorom sa existujúce ID bánk nemenia ani neprepisujú.
+      description: Banka dostupná v lookup endpointoch Fintoro API. Ide o stabilný lookup dataset, v ktorom sa existujúce ID bánk nemenia ani neprepisujú.
       type: object
       properties:
         id:
@@ -7174,7 +7174,7 @@ components:
           minimum: 1
           example: 1
     WarehouseUpdateInput:
-      description: Payload pre aktualizáciu skladu. Public API používa plný `PUT` kontrakt, preto sú required všetky business polia rovnako ako pri create.
+      description: Payload pre aktualizáciu skladu. Fintoro API používa plný `PUT` kontrakt, preto sú required všetky business polia rovnako ako pri create.
       allOf:
         - $ref: '#/components/schemas/WarehouseCreateInput'
     SupplierSnapshot:
@@ -7405,7 +7405,7 @@ components:
           items:
             $ref: '#/components/schemas/WarehouseReceiptLineInput'
     WarehouseInboundReceiptUpdateInput:
-      description: Payload pre aktualizáciu skladovej príjemky. Public API používa plný `PUT` kontrakt, preto sú required rovnaké business polia ako pri create.
+      description: Payload pre aktualizáciu skladovej príjemky. Fintoro API používa plný `PUT` kontrakt, preto sú required rovnaké business polia ako pri create.
       allOf:
         - $ref: '#/components/schemas/WarehouseInboundReceiptCreateInput'
     WarehouseOutboundReceipt:
@@ -7526,7 +7526,7 @@ components:
           items:
             $ref: '#/components/schemas/WarehouseReceiptLineInput'
     WarehouseOutboundReceiptUpdateInput:
-      description: Payload pre aktualizáciu skladovej výdajky. Public API používa plný `PUT` kontrakt, preto sú required rovnaké business polia ako pri create.
+      description: Payload pre aktualizáciu skladovej výdajky. Fintoro API používa plný `PUT` kontrakt, preto sú required rovnaké business polia ako pri create.
       allOf:
         - $ref: '#/components/schemas/WarehouseOutboundReceiptCreateInput'
     WarehouseInboundReceiptSupplierInput:
@@ -7840,7 +7840,7 @@ components:
           example: 20
     PriceListItemUpdateInput:
       description: >-
-        Payload pre aktualizáciu skladovej alebo cenníkovej položky. Public API používa plný `PUT` kontrakt, preto sú required polia
+        Payload pre aktualizáciu skladovej alebo cenníkovej položky. Fintoro API používa plný `PUT` kontrakt, preto sú required polia
         rovnaké ako pri create a vynechané polia nepredstavujú implicitné „zachovaj pôvodnú hodnotu“.
       allOf:
         - $ref: '#/components/schemas/PriceListItemCreateInput'
@@ -8359,7 +8359,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolútna URL na public API endpoint, ktorý stiahne PDF tejto objednávky ako prílohu.
+          description: Absolútna URL na Fintoro API endpoint, ktorý stiahne PDF tejto objednávky ako prílohu.
           example: https://app.fintoro.sk/api/public/v1/orders/501/pdf
         company:
           description: Snapshot dodávateľa uložený priamo na tomto doklade.
@@ -8569,7 +8569,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolútna URL na public API endpoint, ktorý stiahne PDF tejto cenovej ponuky ako prílohu.
+          description: Absolútna URL na Fintoro API endpoint, ktorý stiahne PDF tejto cenovej ponuky ako prílohu.
           example: https://app.fintoro.sk/api/public/v1/quotations/601/pdf
         company:
           description: Snapshot dodávateľa uložený priamo na tomto doklade.
@@ -8784,7 +8784,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolútna URL na public API endpoint, ktorý stiahne PDF tejto zálohovej faktúry ako prílohu.
+          description: Absolútna URL na Fintoro API endpoint, ktorý stiahne PDF tejto zálohovej faktúry ako prílohu.
           example: https://app.fintoro.sk/api/public/v1/proformas/401/pdf
         company:
           description: Snapshot dodávateľa uložený priamo na tomto doklade.
@@ -9042,7 +9042,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolútna URL na public API endpoint, ktorý stiahne PDF tohto dobropisu ako prílohu.
+          description: Absolútna URL na Fintoro API endpoint, ktorý stiahne PDF tohto dobropisu ako prílohu.
           example: https://app.fintoro.sk/api/public/v1/credit-notes/351/pdf
         company:
           description: Snapshot dodávateľa uložený priamo na tomto doklade.
@@ -9311,7 +9311,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolútna URL na public API endpoint, ktorý stiahne PDF tejto faktúry ako prílohu.
+          description: Absolútna URL na Fintoro API endpoint, ktorý stiahne PDF tejto faktúry ako prílohu.
           example: https://app.fintoro.sk/api/public/v1/invoices/123/pdf
         company:
           description: Snapshot dodávateľa uložený priamo na tomto doklade.

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Tento repozitár obsahuje Mintlify dokumentáciu pre Fintoro Public API. Zmeny v guide pages, navigácii a OpenAPI specoch udržiavajte obsahovo zladené medzi slovenskou a anglickou vetvou.
+Tento repozitár obsahuje Mintlify dokumentáciu pre Fintoro API. Zmeny v guide pages, navigácii a OpenAPI specoch udržiavajte obsahovo zladené medzi slovenskou a anglickou vetvou.
 
 ## Local preview
 

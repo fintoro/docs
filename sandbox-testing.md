@@ -2,18 +2,18 @@
 title: "Testovanie v sandboxe"
 ---
 
-Sandboxové firmy slúžia na izolované testovanie API. Nepoužívajú samostatný host ani inú základnú cestu.
+Sandboxové firmy slúžia na izolované testovanie Fintoro API. Nepoužívajú samostatný host ani inú základnú cestu.
 ## Ako funguje sandbox model
 
 - Pod jednou produkčnou firmou si môžete vytvoriť viacero sandboxových firiem.
 - Produkčná aj sandboxová firma používajú rovnakú základnú URL `https://app.fintoro.sk/api/public/v1`.
 - Pri requeste rozhoduje token firmy, nie host alebo iná cesta.
 - Sandboxová firma má obmedzený prístup k niektorým sekciám Fintoro.
-- Na testovanie Public API však sandboxová firma funguje ako samostatné testovacie prostredie a má vlastné tokeny.
+- Na testovanie Fintoro API však sandboxová firma funguje ako samostatné testovacie prostredie a má vlastné tokeny.
 
 ## Kde sandbox firmu vytvoriť
 
-Vo Fintoro otvorte produkčnú firmu a prejdite do `Integrácie > Public API`. Tam si vytvoríte sandboxové firmy pre konkrétne integračné scenáre, partnerov alebo testovacie prostredia.
+Vo Fintoro otvorte produkčnú firmu a prejdite do `Integrácie > Public API`. V rozhraní je táto sekcia zatiaľ označená pôvodným názvom, no práve tu spravujete Fintoro API tokeny aj sandboxové firmy. Tam si vytvoríte sandboxové firmy pre konkrétne integračné scenáre, partnerov alebo testovacie prostredia.
 
 Odporúčame vytvoriť samostatnú sandboxovú firmu pre každý väčší integračný scenár alebo partnera.
 

@@ -2,18 +2,18 @@
 title: "Sandbox testing"
 ---
 
-Sandbox companies are used for isolated API testing. They do not use a separate host or base path.
+Sandbox companies are used for isolated Fintoro API testing. They do not use a separate host or base path.
 ## How the sandbox model works
 
 - You can create multiple sandbox companies under one production company.
 - Production and sandbox companies use the same base URL `https://app.fintoro.sk/api/public/v1`.
 - The token decides which company you work with, not the host or path.
 - A sandbox company has limited access to some Fintoro sections.
-- For Public API testing, the sandbox company acts as an isolated test environment and has its own tokens.
+- For Fintoro API testing, the sandbox company acts as an isolated test environment and has its own tokens.
 
 ## Where to create a sandbox company
 
-In Fintoro, open the production company and go to `Integrations > Public API`. There you can create sandbox companies for a specific integration scenario, partner, or testing environment.
+In Fintoro, open the production company and go to `Integrations > Public API`. In the current UI, this section still uses the original label, but this is where you manage Fintoro API tokens and sandbox companies. There you can create sandbox companies for a specific integration scenario, partner, or testing environment.
 
 We recommend creating a separate sandbox company for each larger integration scenario or partner.
 

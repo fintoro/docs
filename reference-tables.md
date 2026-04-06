@@ -3,7 +3,7 @@ title: "Referenčné tabuľky"
 sidebarTitle: "Číselníky"
 ---
 
-Tieto číselníky sú vo Fintoro považované za fixné hodnoty. Môžete si ich načítať aj cez read-only endpointy public API, no nižšie ich máte pokope ako rýchlu referenciu pre človeka.
+Tieto číselníky sú vo Fintoro považované za fixné hodnoty. Môžete si ich načítať aj cez read-only endpointy Fintoro API, no nižšie ich máte pokope ako rýchlu referenciu pre človeka.
 Tieto tabuľky sú vhodné na rýchle overenie stabilných ID hodnôt. Ak si ich chcete načítať strojovo, použite priamo lookup endpointy. Tie vracajú celý dataset bez filtrovania a stránkovania. Pri bankách nižšie uvádzame okrem lookup ID aj bankový kód a SWIFT, aby ste mali v jednej tabuľke po ruke aj manuálnu referenciu k mapovaniu bankových účtov.
 
 <a id="krajiny"></a>

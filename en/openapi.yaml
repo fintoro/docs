@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
-  title: Fintoro Public API v1
+  title: Fintoro API v1
   version: "1.0.0"
   description: |
-    Fintoro Public API v1 is a REST API for integrating Fintoro invoicing, CRM, and warehouse workflows into third-party systems.
+    Fintoro API v1 is a REST API for integrating Fintoro invoicing, CRM, and warehouse workflows into third-party systems.
 
     Production and sandbox companies use the same base URL `https://app.fintoro.sk/api/public/v1`. The bearer token decides which company you work with.
 
@@ -18,7 +18,7 @@ info:
     - [Errors and idempotency](/en/errors-and-idempotency)
 servers:
   - url: https://app.fintoro.sk/api/public/v1
-    description: Production Public API.
+    description: Production Fintoro API.
 security:
   - bearerAuth: []
 x-tagGroups:
@@ -73,7 +73,7 @@ tags:
   - name: Bank Accounts
     description: Manage bank accounts, including bank details, primary account state, and open banking metadata. Create, update, and delete operations can emit `bank-accounts.created`, `bank-accounts.updated`, and `bank-accounts.deleted` webhook events.
   - name: Webhooks
-    description: Manage outbound webhook subscriptions for Public API. This section covers subscription CRUD, manual secret rotation, and the delivery payload contract for event-driven integrations. The delivery contract, signature verification, retry behavior, and full event catalog are documented in the [Webhooks guide](/en/webhooks).
+    description: Manage outbound webhook subscriptions for Fintoro API. This section covers subscription CRUD, manual secret rotation, and the delivery payload contract for event-driven integrations. The delivery contract, signature verification, retry behavior, and full event catalog are documented in the [Webhooks guide](/en/webhooks).
   - name: Warehouses
     description: CRUD operations for warehouses, including inbound and outbound numbering series. Create, update, and delete operations can emit `warehouses.created`, `warehouses.updated`, and `warehouses.deleted` webhook events.
   - name: Warehouse Inbound Receipts
@@ -2011,7 +2011,7 @@ paths:
       tags: [Warehouses]
       summary: Update warehouse
       operationId: updateWarehouse
-      description: Updates a warehouse. The public API uses a full `PUT` contract, so send the entire warehouse payload including numbering-series values.
+      description: Updates a warehouse. The Fintoro API uses a full `PUT` contract, so send the entire warehouse payload including numbering-series values.
       requestBody:
         required: true
         content:
@@ -2222,7 +2222,7 @@ paths:
       summary: Update warehouse inbound receipt
       operationId: updateWarehouseInboundReceipt
       description: >-
-        Updates an existing warehouse inbound receipt. The public API uses a full `PUT`
+        Updates an existing warehouse inbound receipt. The Fintoro API uses a full `PUT`
         contract, so send the full header and item payload. The partner flow matches create:
         `supplierId` uses an existing supplier, while `supplier` without `supplierId` triggers resolve-or-create.
       requestBody:
@@ -2460,7 +2460,7 @@ paths:
       summary: Update warehouse outbound receipt
       operationId: updateWarehouseOutboundReceipt
       description: >-
-        Updates an existing warehouse outbound receipt. The public API uses a full `PUT`
+        Updates an existing warehouse outbound receipt. The Fintoro API uses a full `PUT`
         contract and preserves the same stock availability validation as the create flow. The partner flow matches
         create: `clientId` uses an existing client, while `client` without `clientId` triggers resolve-or-create.
       requestBody:
@@ -2755,7 +2755,7 @@ paths:
       summary: Update price list item
       operationId: updatePriceListItem
       description: >-
-        Updates a price list or warehouse item. The public API uses a full `PUT` contract, so send the full
+        Updates a price list or warehouse item. The Fintoro API uses a full `PUT` contract, so send the full
         target state including all required business fields.
       requestBody:
         required: true
@@ -5609,7 +5609,7 @@ components:
         example: en
   responses:
     Unauthorized:
-      description: The public API bearer token is missing, invalid, or revoked.
+      description: The Fintoro API bearer token is missing, invalid, or revoked.
       headers:
         X-Request-Id:
           $ref: '#/components/headers/XRequestId'
@@ -5675,7 +5675,7 @@ components:
                   items:
                     type: string
     TooManyRequests:
-      description: The company exceeded the Public API rate limit. This 429 response includes the same `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers as other throttled responses and additionally adds `Retry-After` and `X-RateLimit-Reset`. If you need a higher limit, contact info@fintoro.sk for custom enterprise terms.
+      description: The company exceeded the Fintoro API rate limit. This 429 response includes the same `X-RateLimit-Limit` and `X-RateLimit-Remaining` headers as other throttled responses and additionally adds `Retry-After` and `X-RateLimit-Reset`. If you need a higher limit, contact info@fintoro.sk for custom enterprise terms.
       headers:
         X-Request-Id:
           $ref: '#/components/headers/XRequestId'
@@ -5901,7 +5901,7 @@ components:
             - invoices.created
             - invoices.updated
     Country:
-      description: Country available in public API lookup endpoints and in nested objects where the country is returned directly in the response.
+      description: Country available in Fintoro API lookup endpoints and in nested objects where the country is returned directly in the response.
       type: object
       properties:
         id:
@@ -5921,7 +5921,7 @@ components:
           type: boolean
           example: true
     Language:
-      description: Language available in public API lookup endpoints.
+      description: Language available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -5937,7 +5937,7 @@ components:
           type: string
           example: sk
     Currency:
-      description: Currency available in public API lookup endpoints.
+      description: Currency available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -5957,7 +5957,7 @@ components:
           type: string
           example: €
     DeliveryMethod:
-      description: Delivery method available in public API lookup endpoints.
+      description: Delivery method available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -5969,7 +5969,7 @@ components:
           type: string
           example: Unspecified
     PaymentMethod:
-      description: Payment method available in public API lookup endpoints.
+      description: Payment method available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -6108,7 +6108,7 @@ components:
           enum: [regular, reminder, overdue_reminder, confirmation]
           example: reminder
     QrType:
-      description: QR type available in public API lookup endpoints.
+      description: QR type available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -6120,7 +6120,7 @@ components:
           type: string
           example: Do not generate
     Unit:
-      description: Unit available in public API lookup endpoints.
+      description: Unit available in Fintoro API lookup endpoints.
       type: object
       properties:
         id:
@@ -6748,7 +6748,7 @@ components:
             - type: 'null'
     ContactActivityLogMetadata:
       description: >-
-        CRM event response metadata tailored for the public API. For document-related event types, the live
+        CRM event response metadata tailored for the Fintoro API. For document-related event types, the live
         linked document is returned directly in `relatedDocument`, and snapshot amounts expose their snapshot
         currency through `documentCurrencySnapshot`.
       type: object
@@ -6808,7 +6808,7 @@ components:
           enum: [note, email, phone_call, document_linked, document_created, document_updated, document_deleted, document_payment_added]
           example: note
         metadata:
-          description: CRM event metadata prepared for the public API response.
+          description: CRM event metadata prepared for the Fintoro API response.
           $ref: '#/components/schemas/ContactActivityLogMetadata'
         attachments:
           type: array
@@ -7014,7 +7014,7 @@ components:
           type: [string, 'null']
           example: '2026-03-03 15:45:00'
     Bank:
-      description: Bank available through public API lookup endpoints. This is a stable lookup dataset whose existing bank IDs do not change or get reassigned.
+      description: Bank available through Fintoro API lookup endpoints. This is a stable lookup dataset whose existing bank IDs do not change or get reassigned.
       type: object
       properties:
         id:
@@ -7175,7 +7175,7 @@ components:
           minimum: 1
           example: 1
     WarehouseUpdateInput:
-      description: Payload used to update a warehouse. The public API uses a full `PUT` contract, so the same business fields are required as on create.
+      description: Payload used to update a warehouse. The Fintoro API uses a full `PUT` contract, so the same business fields are required as on create.
       allOf:
         - $ref: '#/components/schemas/WarehouseCreateInput'
     SupplierSnapshot:
@@ -7406,7 +7406,7 @@ components:
           items:
             $ref: '#/components/schemas/WarehouseReceiptLineInput'
     WarehouseInboundReceiptUpdateInput:
-      description: Payload used to update a warehouse inbound receipt. The public API uses a full `PUT` contract, so the same business fields are required as on create.
+      description: Payload used to update a warehouse inbound receipt. The Fintoro API uses a full `PUT` contract, so the same business fields are required as on create.
       allOf:
         - $ref: '#/components/schemas/WarehouseInboundReceiptCreateInput'
     WarehouseOutboundReceipt:
@@ -7527,7 +7527,7 @@ components:
           items:
             $ref: '#/components/schemas/WarehouseReceiptLineInput'
     WarehouseOutboundReceiptUpdateInput:
-      description: Payload used to update a warehouse outbound receipt. The public API uses a full `PUT` contract, so the same business fields are required as on create.
+      description: Payload used to update a warehouse outbound receipt. The Fintoro API uses a full `PUT` contract, so the same business fields are required as on create.
       allOf:
         - $ref: '#/components/schemas/WarehouseOutboundReceiptCreateInput'
     WarehouseInboundReceiptSupplierInput:
@@ -7840,7 +7840,7 @@ components:
           example: 20
     PriceListItemUpdateInput:
       description: >-
-        Payload for updating a price list or warehouse item. The public API uses a full `PUT` contract, so the required fields are
+        Payload for updating a price list or warehouse item. The Fintoro API uses a full `PUT` contract, so the required fields are
         the same as for create and omitted fields do not mean "keep the current persisted value".
       allOf:
         - $ref: '#/components/schemas/PriceListItemCreateInput'
@@ -8337,7 +8337,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolute URL of the public API endpoint that downloads this proforma PDF as an attachment.
+          description: Absolute URL of the Fintoro API endpoint that downloads this proforma PDF as an attachment.
           example: https://app.fintoro.sk/api/public/v1/proformas/401/pdf
         company:
           description: Supplier snapshot stored directly on this document.
@@ -8612,7 +8612,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolute URL of the public API endpoint that downloads this order PDF as an attachment.
+          description: Absolute URL of the Fintoro API endpoint that downloads this order PDF as an attachment.
           example: https://app.fintoro.sk/api/public/v1/orders/501/pdf
         company:
           description: Supplier snapshot stored directly on this document.
@@ -8822,7 +8822,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolute URL of the public API endpoint that downloads this quotation PDF as an attachment.
+          description: Absolute URL of the Fintoro API endpoint that downloads this quotation PDF as an attachment.
           example: https://app.fintoro.sk/api/public/v1/quotations/601/pdf
         company:
           description: Supplier snapshot stored directly on this document.
@@ -9042,7 +9042,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolute URL of the public API endpoint that downloads this credit note PDF as an attachment.
+          description: Absolute URL of the Fintoro API endpoint that downloads this credit note PDF as an attachment.
           example: https://app.fintoro.sk/api/public/v1/credit-notes/351/pdf
         company:
           description: Supplier snapshot stored directly on this document.
@@ -9311,7 +9311,7 @@ components:
         pdfDownloadUrl:
           type: string
           format: uri
-          description: Absolute URL of the public API endpoint that downloads this invoice PDF as an attachment.
+          description: Absolute URL of the Fintoro API endpoint that downloads this invoice PDF as an attachment.
           example: https://app.fintoro.sk/api/public/v1/invoices/123/pdf
         company:
           description: Supplier snapshot stored directly on this document.

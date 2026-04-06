@@ -1,6 +1,6 @@
-# Fintoro Public API docs
+# Fintoro API docs
 
-Mintlify dokumentácia pre Fintoro Public API.
+Mintlify dokumentácia pre Fintoro API.
 
 ## Lokálny vývoj
 

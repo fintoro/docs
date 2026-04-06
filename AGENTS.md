@@ -1,6 +1,6 @@
 # Docs repo rules
 
-- Tento repozitár hostuje Mintlify dokumentáciu pre Fintoro Public API.
+- Tento repozitár hostuje Mintlify dokumentáciu pre Fintoro API.
 - Predvolené jazykové vetvy:
   - koreň repo = slovenský obsah,
   - `en/` = anglický obsah.
