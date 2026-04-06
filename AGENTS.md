@@ -1,33 +1,16 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# Docs repo rules
 
-# Documentation project instructions
-
-## About this project
-
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
-- Run `mint broken-links` to check links
-
-## Terminology
-
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
-
-## Style preferences
-
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
-
-## Content boundaries
-
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Tento repozitár hostuje Mintlify dokumentáciu pre Fintoro Public API.
+- Predvolené jazykové vetvy:
+  - koreň repo = slovenský obsah,
+  - `en/` = anglický obsah.
+- Mintlify nepodporuje locale code `sk`, preto je slovenská vetva v natívnom language switcheri dočasne vedená ako `cs`.
+- OpenAPI source of truth v tomto repo:
+  - `openapi.yaml`
+  - `en/openapi.yaml`
+- Human guide pages udržiavaj v oboch jazykoch obsahovo zladené.
+- Keď meníš navigáciu alebo branding, uprav `docs.json`.
+- Keď meníš guide page linky, preferuj interné Mintlify routy pred odkazom na raw YAML súbor.
+- Lokálne preview:
+  - `mint dev`
+  - `mint broken-links`

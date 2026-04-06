@@ -1,68 +1,112 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Fintoro Public API",
   "colors": {
     "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "light": "#22C55E",
+    "dark": "#166534"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "seo": {
+    "title": "Fintoro Public API dokumentácia",
+    "description": "Public API dokumentácia pripravená na produkčné integrácie s Fintoro.",
+    "image": "/images/og-image.png"
+  },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "cs",
+        "tabs": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
+            "tab": "Príručky",
+            "groups": [
+              {
+                "group": "Začíname",
+                "pages": [
+                  "index",
+                  "getting-started",
+                  "authentication",
+                  "sandbox-testing"
+                ]
+              },
+              {
+                "group": "Prevádzka",
+                "pages": [
+                  "conventions",
+                  "errors-and-idempotency",
+                  "webhooks",
+                  "reference-tables"
+                ]
+              }
             ]
           },
           {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+            "tab": "API referencia",
+            "groups": [
+              {
+                "group": "Prehľad",
+                "pages": [
+                  "api-reference/index"
+                ]
+              },
+              {
+                "group": "Endpointy",
+                "openapi": {
+                  "source": "openapi.yaml",
+                  "directory": "api-reference"
+                }
+              }
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "en/index",
+                  "en/getting-started",
+                  "en/authentication",
+                  "en/sandbox-testing"
+                ]
+              },
+              {
+                "group": "Operations",
+                "pages": [
+                  "en/conventions",
+                  "en/errors-and-idempotency",
+                  "en/webhooks",
+                  "en/reference-tables"
+                ]
+              }
             ]
           },
           {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "tab": "API reference",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "en/api-reference/index"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "openapi": {
+                  "source": "en/openapi.yaml",
+                  "directory": "en/api-reference"
+                }
+              }
             ]
           }
         ]
@@ -71,52 +115,30 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Fintoro",
+          "href": "https://fintoro.sk",
+          "icon": "globe"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "App",
+        "href": "https://app.fintoro.sk"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   }
 }
