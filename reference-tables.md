@@ -9,9 +9,6 @@ Tieto tabuľky sú vhodné na rýchle overenie stabilných ID hodnôt. Ak si ich
 <a id="krajiny"></a>
 ## Krajiny
 
-<details>
-<summary>Zobraziť tabuľku krajín</summary>
-
 | ID | Názov | Kód | EÚ |
 | --- | --- | --- | --- |
 | 4 | Afganistan | AF | nie |
@@ -264,13 +261,8 @@ Tieto tabuľky sú vhodné na rýchle overenie stabilných ID hodnôt. Ak si ich
 | 887 | Jemen | YE | nie |
 | 894 | Zambia | ZM | nie |
 
-</details>
-
 <a id="banky"></a>
 ## Banky
-
-<details>
-<summary>Zobraziť tabuľku bánk</summary>
 
 | ID | Názov | Kód banky | SWIFT |
 | --- | --- | --- | --- |
@@ -303,8 +295,6 @@ Tieto tabuľky sú vhodné na rýchle overenie stabilných ID hodnôt. Ak si ich
 | 43 | J&T BANKA | 8320 | JTBPSKBA |
 | 44 | BKS Bank | 8420 | BFKKSKBB |
 | 45 | Trust Pay | 9952 | TPAYSKBX |
-
-</details>
 
 <a id="jazyky"></a>
 

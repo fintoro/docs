@@ -8,9 +8,6 @@ These tables are useful for quickly verifying stable IDs. If you need the data i
 <a id="countries"></a>
 ## Countries
 
-<details>
-<summary>Show country table</summary>
-
 | ID | Name | Code | EU |
 | --- | --- | --- | --- |
 | 4 | Afghanistan | AF | no |
@@ -263,13 +260,8 @@ These tables are useful for quickly verifying stable IDs. If you need the data i
 | 887 | Yemen | YE | no |
 | 894 | Zambia | ZM | no |
 
-</details>
-
 <a id="banks"></a>
 ## Banks
-
-<details>
-<summary>Show bank table</summary>
 
 | ID | Name | Bank code | SWIFT |
 | --- | --- | --- | --- |
@@ -302,8 +294,6 @@ These tables are useful for quickly verifying stable IDs. If you need the data i
 | 43 | J&T BANKA | 8320 | JTBPSKBA |
 | 44 | BKS Bank | 8420 | BFKKSKBB |
 | 45 | Trust Pay | 9952 | TPAYSKBX |
-
-</details>
 
 <a id="languages"></a>
 
