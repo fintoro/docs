@@ -3,7 +3,7 @@ title: "Reference tables"
 ---
 
 These lookups are treated as fixed values in Fintoro. You can also fetch them through read-only Fintoro API endpoints, and the tables below provide a quick human-readable reference.
-These tables are useful for quickly verifying stable IDs. If you need the data in a machine-readable form, use the lookup endpoints directly. They return the full dataset without filtering or pagination. For banks, we also list the domestic bank code and SWIFT so you have one manual reference table for bank-account mapping.
+These tables are useful for quickly verifying stable IDs. If you need the data in a machine-readable form, use the lookup endpoints directly. They return the full dataset without filtering or pagination. For banks, we also list SWIFT so you have one manual reference table for bank-account mapping.
 
 <a id="countries"></a>
 ## Countries
@@ -263,37 +263,37 @@ These tables are useful for quickly verifying stable IDs. If you need the data i
 <a id="banks"></a>
 ## Banks
 
-| ID | Name | Bank code | SWIFT |
-| --- | --- | --- | --- |
-| 1 | 365 Bank | 6500 | POBNSKBA |
-| 4 | Fio banka | 8330 | FIOZSKBA |
-| 6 | ING Wholesale Banking | 7300 | INGBSKBX |
-| 8 | mBank | 8360 | BREXSKBX |
-| 12 | Oberbank | 8370 | OBKLSKBA |
-| 13 | PayPal | not set | PPLXLULLXXX |
-| 15 | Poštová banka | 6500 | POBNSKBA |
-| 16 | Prima Banka | 5600 | KOMASK2X |
-| 17 | Raiffeisen Banka | 1100 | TATRSKBX |
-| 18 | Revolut | not set | REVOLT21XXX |
-| 19 | Skrill | not set | SKRLGB2L |
-| 20 | Slovenská sporiteľňa | 0900 | GIBASKBX |
-| 23 | Tatra Banka | 1100 | TATRSKBX |
-| 24 | Unicredit | 1111 | UNCRSKBX |
-| 25 | VUB Banka | 0200 | SUBASKBX |
-| 26 | Wise | not set | TRWIGB22XXX |
-| 27 | Československá obchodná banka | 7500 | CEKOSKBX |
-| 33 | Národná banka Slovenska | 0720 | NBSBSKBX |
-| 34 | Slovenská záručná a rozvojová banka | 3000 | SLZBSKBA |
-| 35 | Prvá stavebná sporiteľňa | 5900 | PRVASKBA |
-| 37 | Wustenrot stavebná sporiteľňa | 7930 | WUSTSKBA |
-| 38 | Komerční banka | 8100 | KOMBSKBA |
-| 39 | Privatbanka | 8120 | BSLOSK22 |
-| 40 | Citibank Europe | 8130 | CITISKBA |
-| 41 | EXIMBANKA | 8160 | EXSKSKBX |
-| 42 | Štátna pokladnica | 8180 | SPSRSKBA |
-| 43 | J&T BANKA | 8320 | JTBPSKBA |
-| 44 | BKS Bank | 8420 | BFKKSKBB |
-| 45 | Trust Pay | 9952 | TPAYSKBX |
+| ID | Name | SWIFT |
+| --- | --- | --- |
+| 1 | 365 Bank | POBNSKBA |
+| 4 | Fio banka | FIOZSKBA |
+| 6 | ING Wholesale Banking | INGBSKBX |
+| 8 | mBank | BREXSKBX |
+| 12 | Oberbank | OBKLSKBA |
+| 13 | PayPal | PPLXLULLXXX |
+| 15 | Poštová banka | POBNSKBA |
+| 16 | Prima Banka | KOMASK2X |
+| 17 | Raiffeisen Banka | TATRSKBX |
+| 18 | Revolut | REVOLT21XXX |
+| 19 | Skrill | SKRLGB2L |
+| 20 | Slovenská sporiteľňa | GIBASKBX |
+| 23 | Tatra Banka | TATRSKBX |
+| 24 | Unicredit | UNCRSKBX |
+| 25 | VUB Banka | SUBASKBX |
+| 26 | Wise | TRWIGB22XXX |
+| 27 | Československá obchodná banka | CEKOSKBX |
+| 33 | Národná banka Slovenska | NBSBSKBX |
+| 34 | Slovenská záručná a rozvojová banka | SLZBSKBA |
+| 35 | Prvá stavebná sporiteľňa | PRVASKBA |
+| 37 | Wustenrot stavebná sporiteľňa | WUSTSKBA |
+| 38 | Komerční banka | KOMBSKBA |
+| 39 | Privatbanka | BSLOSK22 |
+| 40 | Citibank Europe | CITISKBA |
+| 41 | EXIMBANKA | EXSKSKBX |
+| 42 | Štátna pokladnica | SPSRSKBA |
+| 43 | J&T BANKA | JTBPSKBA |
+| 44 | BKS Bank | BFKKSKBB |
+| 45 | Trust Pay | TPAYSKBX |
 
 <a id="languages"></a>
 

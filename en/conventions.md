@@ -23,7 +23,7 @@ This section summarizes the rules that repeat across Fintoro API v1.
 
 Supported request language tags:
 
-| Language | Preferred tag | Validation error language |
+| Language | Tag | Validation error language |
 | --- | --- | --- |
 | Slovak | `sk` | Slovak |
 | English | `en` | English |

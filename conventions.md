@@ -23,7 +23,7 @@ Táto sekcia zhŕňa pravidlá, ktoré sa opakujú naprieč Fintoro API v1.
 
 Podporované request language tagy:
 
-| Jazyk | Odporúčaný tag | Jazyk validačných chýb |
+| Jazyk | Tag | Jazyk validačných chýb |
 | --- | --- | --- |
 | Slovenčina | `sk` | Slovenčina |
 | Angličtina | `en` | Angličtina |
