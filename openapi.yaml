@@ -24,6 +24,7 @@ security:
 x-tagGroups:
   - name: Základy integrácie
     tags:
+      - Identita tokenu
       - Lookupy
       - Číselné rady
       - Subjekty
@@ -54,6 +55,8 @@ x-tagGroups:
       - Úhrady dokladov
       - Dokladové e-maily
 tags:
+  - name: Identita tokenu
+    description: Technický read-only endpoint na overenie, ku ktorej firme bearer token aktuálne patrí.
   - name: Lookupy
     description: Endpointy len na čítanie pre integračné dáta. Tieto endpointy vracajú číselníky so stabilnými ID, ktoré môžete bezpečne ukladať do cache na svojej strane. Pri doplnení nových lookup hodnôt sa existujúce ID nemenia ani neprepisujú.
   - name: Číselné rady
@@ -124,6 +127,28 @@ tags:
       klienta, create-like defaulty a plný `PUT` update flow bez patch fallbacku na pôvodný stav dokladu.
       Create, update a delete operácie môžu emitovať webhook eventy `quotations.created`, `quotations.updated` a `quotations.deleted`.
 paths:
+  /whoami:
+    get:
+      tags: [Identita tokenu]
+      summary: Identita aktuálnej firmy
+      operationId: showWhoami
+      description: Vráti minimálnu identitu firmy priradenej k bearer tokenu. Endpoint je vhodný na rýchle overenie, že integrácia pracuje so správnou produkčnou alebo sandbox firmou, bez potreby sťahovať ďalšie business dáta.
+      responses:
+        '200':
+          description: Identita aktuálnej firmy.
+          headers:
+            X-Request-Id:
+              $ref: '#/components/headers/XRequestId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Whoami'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /banks:
     get:
       tags: [Lookupy]
@@ -7012,6 +7037,15 @@ components:
           description: Dátum a čas poslednej zmeny bankového účtu.
           type: [string, 'null']
           example: '2026-03-03 15:45:00'
+    Whoami:
+      description: Minimálna identita firmy, v kontexte ktorej bearer token vykonáva requesty.
+      type: object
+      required: [name]
+      properties:
+        name:
+          description: Obchodné meno firmy priradenej k aktuálnemu bearer tokenu.
+          type: string
+          example: Acme s.r.o.
     Bank:
       description: Banka dostupná v lookup endpointoch Fintoro API. Ide o stabilný lookup dataset, v ktorom sa existujúce ID bánk nemenia ani neprepisujú.
       type: object

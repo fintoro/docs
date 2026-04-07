@@ -24,6 +24,7 @@ security:
 x-tagGroups:
   - name: Integration basics
     tags:
+      - Token identity
       - Lookups
       - Numerical Series
       - Subjects
@@ -54,6 +55,8 @@ x-tagGroups:
       - Document Payments
       - Document Emails
 tags:
+  - name: Token identity
+    description: Technical read-only endpoint that confirms which company the current bearer token belongs to.
   - name: Lookups
     description: Read-only lookup endpoints for integration data. These endpoints return lookup datasets with stable IDs that are safe to cache on your side. When new lookup values are added, existing IDs do not change or get reassigned.
   - name: Numerical Series
@@ -125,6 +128,28 @@ tags:
       document state. Create, update, and delete operations can emit `quotations.created`, `quotations.updated`, and
       `quotations.deleted` webhook events.
 paths:
+  /whoami:
+    get:
+      tags: [Token identity]
+      summary: Current company identity
+      operationId: showWhoami
+      description: Returns the minimal identity of the company assigned to the bearer token. Use this endpoint to quickly confirm that your integration is operating against the expected production or sandbox company without fetching additional business data.
+      responses:
+        '200':
+          description: Identity of the current company.
+          headers:
+            X-Request-Id:
+              $ref: '#/components/headers/XRequestId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Whoami'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
   /banks:
     get:
       tags: [Lookups]
@@ -7013,6 +7038,15 @@ components:
           description: Date and time of the most recent bank account change.
           type: [string, 'null']
           example: '2026-03-03 15:45:00'
+    Whoami:
+      description: Minimal identity of the company in whose context the bearer token executes requests.
+      type: object
+      required: [name]
+      properties:
+        name:
+          description: Company name assigned to the current bearer token.
+          type: string
+          example: Acme s.r.o.
     Bank:
       description: Bank available through Fintoro API lookup endpoints. This is a stable lookup dataset whose existing bank IDs do not change or get reassigned.
       type: object
