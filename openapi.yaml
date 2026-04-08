@@ -3713,7 +3713,7 @@ paths:
         - Musíte poslať buď `clientId`, alebo objekt `client`.
         - `items` sú povinné vždy.
         - Ak pole nepošlete, backend nedrží pôvodnú hodnotu z faktúry, ale vyrieši ho rovnako ako pri create flowe z payloadu, klientských predvolieb a nastavenia dokladov firmy.
-        - Pri update položiek môžete poslať pôvodné `uuid` existujúcich riadkov faktúry. Tieto UUID máte k dispozícii v detaile faktúry. Backend ich používa na udržanie väzieb na skladové výdajky pri synchronizácii alokácií. Pri create flowe sa tieto UUID neposielajú, generuje ich backend.
+        - Pri update položiek môžete poslať pôvodné `uuid` existujúcich riadkov faktúry. Tieto UUID máte k dispozícii v detaile faktúry. Backend ich používa na udržanie väzieb na skladové výdajky pri synchronizácii alokácií. Pri create flowe `uuid` nie je súčasťou item request kontraktu; ak ho pošlete, backend ho ignoruje a vygeneruje vlastné UUID.
 
         ### Chybové stavy
 
@@ -4154,7 +4154,7 @@ paths:
         - Update používa plný `PUT` kontrakt; položky sú povinné vždy.
         - `invoiceId` zostáva povinné a klient dobropisu sa vždy preberá zo zvolenej faktúry.
         - Omitted polia sa nedoťahujú z aktuálneho dobropisu, preto pošlite celý business payload.
-        - Pri položkách môžete poslať existujúce `uuid`, aby backend vedel zachovať väzby na skladové príjemky pri synchronizácii.
+        - Pri položkách môžete poslať existujúce `uuid`, aby backend vedel zachovať väzby na skladové príjemky pri synchronizácii. Pri create flowe `uuid` nie je súčasťou item request kontraktu; ak ho pošlete, backend ho ignoruje a vygeneruje vlastné UUID.
       requestBody:
         required: true
         content:
@@ -4935,7 +4935,7 @@ paths:
         - `items` sú povinné vždy.
         - Ak pole nepošlete, backend nedrží pôvodnú hodnotu z objednávky, ale vyrieši ho rovnako ako pri create flowe z payloadu, klientských predvolieb a nastavenia dokladov firmy.
         - Ak pri update vynecháte `quotationId`, existujúca väzba objednávky na cenovú ponuku sa odstráni. To isté platí, ak pošlete explicitné `null`.
-        - Order update nepoužíva per-item `uuid`; položky sa pri update skladajú z finálneho payloadu znova.
+        - Order update nepoužíva per-item `uuid`; ak ho pošlete, backend ho ignoruje a položky sa pri update skladajú z finálneho payloadu znova.
       requestBody:
         required: true
         content:
@@ -5245,7 +5245,7 @@ paths:
 
         `priceListItemId` slúži len na input hydratáciu. Response cenovej ponuky vracia už finálnu kanonickú položku a neponecháva tento cenníkový odkaz ako samostatné pole.
 
-        Cenové ponuky nepoužívajú per-item `uuid` ani `warehouseAllocations`.
+        Cenové ponuky nepoužívajú per-item `uuid`; ak ho pošlete, backend ho ignoruje. `warehouseAllocations` pri cenových ponukách nie sú podporované.
 
         Stav novej cenovej ponuky sa vytvára ako `waiting`.
 
@@ -5349,7 +5349,7 @@ paths:
         - Musíte poslať buď `clientId`, alebo objekt `client`.
         - `items` sú povinné vždy.
         - Ak pole nepošlete, backend nedrží pôvodnú hodnotu z cenovej ponuky, ale vyrieši ho rovnako ako pri create flowe z payloadu, klientských predvolieb a nastavenia dokladov firmy.
-        - Update cenovej ponuky nepoužíva per-item `uuid`; položky sa pri update skladajú z finálneho payloadu znova.
+        - Update cenovej ponuky nepoužíva per-item `uuid`; ak ho pošlete, backend ho ignoruje a položky sa pri update skladajú z finálneho payloadu znova.
       requestBody:
         required: true
         content:
@@ -9994,7 +9994,7 @@ components:
 
     InvoiceUpdateItemInput:
       description: >-
-        Payload jednej položky faktúry pri update. Pravidlá sú rovnaké ako pri create, ale navyše môžete poslať pôvodné `uuid` existujúceho riadku faktúry. Toto UUID máte k dispozícii v detaile faktúry. Backend ho používa pri synchronizácii skladových alokácií a výdajok, aby vedel spárovať upravovaný riadok s pôvodným riadkom dokladu.
+        Payload jednej položky faktúry pri update. Pravidlá sú rovnaké ako pri create, ale navyše môžete poslať pôvodné `uuid` existujúceho riadku faktúry. Toto UUID máte k dispozícii v detaile faktúry. Backend ho používa pri synchronizácii skladových alokácií a výdajok, aby vedel spárovať upravovaný riadok s pôvodným riadkom dokladu. Pri create flowe `uuid` nie je súčasťou item request kontraktu; ak ho pošlete, backend ho ignoruje.
       allOf:
         - $ref: '#/components/schemas/InvoiceItemInput'
         - type: object
@@ -10007,7 +10007,7 @@ components:
 
     InvoiceUpdateInput:
       description: >-
-        Payload pre aktualizáciu faktúry. Update používa rovnaké polia, rovnaké validačné pravidlá a rovnaké defaulty ako create flow. Musíte poslať buď `clientId`, alebo objekt `client`. Omitted polia sa nedoťahujú z aktuálnej faktúry; backend ich vyrieši rovnako ako pri create flowe. Jediný rozdiel oproti create je, že pri položkách môžete navyše posielať pôvodné `uuid` existujúcich riadkov faktúry.
+        Payload pre aktualizáciu faktúry. Update používa rovnaké polia, rovnaké validačné pravidlá a rovnaké defaulty ako create flow. Musíte poslať buď `clientId`, alebo objekt `client`. Omitted polia sa nedoťahujú z aktuálnej faktúry; backend ich vyrieši rovnako ako pri create flowe. Jediný rozdiel oproti create je, že pri položkách môžete navyše posielať pôvodné `uuid` existujúcich riadkov faktúry; create flow ich ignoruje.
       allOf:
         - $ref: '#/components/schemas/InvoiceInput'
         - type: object
@@ -10041,7 +10041,7 @@ components:
         - type: object
           properties:
             items:
-              description: Položky dobropisu. Toto pole je pri update povinné vždy. Ak pri existujúcej položke pošlete jej pôvodné `uuid` z detailu dobropisu, backend vie zachovať väzby na skladové príjemky.
+              description: Položky dobropisu. Toto pole je pri update povinné vždy. Ak pri existujúcej položke pošlete jej pôvodné `uuid` z detailu dobropisu, backend vie zachovať väzby na skladové príjemky. Pri create flowe item `uuid` nie je súčasťou request kontraktu a backend ho ignoruje.
               type: array
               minItems: 1
               maxItems: 100
@@ -10229,7 +10229,7 @@ components:
           maxLength: 3000
           example: Dakujeme za spoluprácu.
         items:
-          description: Položky objednávky. Toto pole je povinné vždy. `uuid` ani `warehouseAllocations` sa pri objednávkach neposielajú.
+          description: Položky objednávky. Toto pole je povinné vždy. Per-item `uuid` nie je súčasťou request kontraktu; ak ho pošlete, backend ho ignoruje. `warehouseAllocations` pri objednávkach nie sú podporované.
           type: array
           minItems: 1
           maxItems: 100
@@ -10249,7 +10249,7 @@ components:
               type: [integer, 'null']
               example: 601
             items:
-              description: Položky objednávky. Toto pole je pri update povinné vždy.
+              description: Položky objednávky. Toto pole je pri update povinné vždy. Per-item `uuid` nie je súčasťou request kontraktu; ak ho pošlete, backend ho ignoruje. `warehouseAllocations` pri objednávkach nie sú podporované.
               type: array
               minItems: 1
               maxItems: 100
@@ -10261,8 +10261,8 @@ components:
         `priceListItemId` s čiastočnými override poľami. Povinné je vždy `quantity`. Ak nepošlete `priceListItemId`, musíte poslať
         aj `name`, `unitPrice` a `vatRate`. `unitId` je voliteľné; ak ho pri manuálnej položke nepošlete, backend použije jednotku
         `1` (`ks` / `Unit::Piece`). Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať názov, jednotku,
-        cenu a sadzbu DPH; payload potom slúži len ako sparse override. `uuid` ani `warehouseAllocations` sa pri cenových ponukách
-        neposielajú.
+        cenu a sadzbu DPH; payload potom slúži len ako sparse override. `uuid` nie je súčasťou request kontraktu cenových ponúk; ak ho
+        pošlete, backend ho ignoruje. `warehouseAllocations` pri cenových ponukách nie sú podporované.
       type: object
       required: [quantity]
       anyOf:
@@ -10409,7 +10409,7 @@ components:
           maxLength: 3000
           example: Dakujeme za Váš záujem.
         items:
-          description: Položky cenovej ponuky. Toto pole je povinné vždy. `uuid` ani `warehouseAllocations` sa pri cenových ponukách neposielajú.
+          description: Položky cenovej ponuky. Toto pole je povinné vždy. Per-item `uuid` nie je súčasťou request kontraktu; ak ho pošlete, backend ho ignoruje. `warehouseAllocations` pri cenových ponukách nie sú podporované.
           type: array
           minItems: 1
           maxItems: 100

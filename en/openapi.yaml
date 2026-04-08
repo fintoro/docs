@@ -3713,7 +3713,7 @@ paths:
         - You must send either `clientId` or the `client` object.
         - `items` are always required.
         - If you omit a field, the backend does not preserve the current value from the invoice. Instead, it resolves the field exactly like in the create flow from the payload, client defaults, and company document settings.
-        - When updating line items, you may send the original `uuid` values of existing invoice rows. These UUIDs are available in the invoice detail response. The backend uses them to keep warehouse outbound receipt links stable when allocations or quantities change. In the create flow you do not send these UUIDs; the backend generates them.
+        - When updating line items, you may send the original `uuid` values of existing invoice rows. These UUIDs are available in the invoice detail response. The backend uses them to keep warehouse outbound receipt links stable when allocations or quantities change. In the create flow, item `uuid` is not part of the request contract; if you send it, the backend ignores it and generates its own UUID.
 
         ### Error semantics
 
@@ -4154,7 +4154,7 @@ paths:
         - Update uses a full `PUT` contract; items are always required.
         - `invoiceId` stays required and the credit-note client is always taken from the selected invoice.
         - Omitted fields are not copied from the current credit note, so send the full business payload.
-        - For line items, you may send existing `uuid` values so the backend can preserve warehouse inbound receipt links during synchronization.
+        - For line items, you may send existing `uuid` values so the backend can preserve warehouse inbound receipt links during synchronization. In the create flow, item `uuid` is not part of the request contract; if you send it, the backend ignores it and generates its own UUID.
       requestBody:
         required: true
         content:
@@ -4935,7 +4935,7 @@ paths:
         - `items` are always required.
         - If you omit a field, the backend does not preserve the previous order value. Instead it resolves the field the same way as in the create flow from the payload, client defaults, and company document settings.
         - If you omit `quotationId` during update, any existing quotation link is removed. The same applies if you send explicit `null`.
-        - Order updates do not use per-item `uuid`; items are rebuilt from the final payload shape.
+        - Order updates do not use per-item `uuid`; if you send it, the backend ignores it and rebuilds items from the final payload shape.
       requestBody:
         required: true
         content:
@@ -5245,7 +5245,7 @@ paths:
 
         `priceListItemId` is used only for input hydration. The quotation response returns the final canonical item shape and does not echo this price list reference back as a separate field.
 
-        Quotations do not use per-item `uuid` or `warehouseAllocations`.
+        Quotations do not use per-item `uuid`; if you send it, the backend ignores it. `warehouseAllocations` are not supported for quotations.
 
         The initial quotation status is `waiting`.
 
@@ -5349,7 +5349,7 @@ paths:
         - You must send either `clientId` or a `client` object.
         - `items` are always required.
         - If you omit a field, the backend does not preserve the previous quotation value. Instead it resolves the field the same way as in the create flow from the payload, client defaults, and company document settings.
-        - Quotation updates do not use per-item `uuid`; items are rebuilt from the final payload shape.
+        - Quotation updates do not use per-item `uuid`; if you send it, the backend ignores it and rebuilds items from the final payload shape.
       requestBody:
         required: true
         content:
@@ -9994,7 +9994,7 @@ components:
 
     InvoiceUpdateItemInput:
       description: >-
-        Payload for a single invoice line item during update. The validation rules are the same as in create, but you may additionally send the original `uuid` of an existing invoice row. You can obtain that UUID from the invoice detail response. The backend uses it during warehouse allocation and outbound receipt synchronization so it can match the edited line with the original stored line.
+        Payload for a single invoice line item during update. The validation rules are the same as in create, but you may additionally send the original `uuid` of an existing invoice row. You can obtain that UUID from the invoice detail response. The backend uses it during warehouse allocation and outbound receipt synchronization so it can match the edited line with the original stored line. In the create flow, item `uuid` is not part of the request contract; if you send it, the backend ignores it.
       allOf:
         - $ref: '#/components/schemas/InvoiceItemInput'
         - type: object
@@ -10007,7 +10007,7 @@ components:
 
     InvoiceUpdateInput:
       description: >-
-        Payload used to update an invoice. Update uses the same fields, validation rules, and defaults as the create flow. You must send either `clientId` or the `client` object. Omitted fields are not copied from the current invoice; the backend resolves them exactly like in the create flow. The only difference compared to create is that line items may additionally carry the original `uuid` values of existing invoice rows.
+        Payload used to update an invoice. Update uses the same fields, validation rules, and defaults as the create flow. You must send either `clientId` or the `client` object. Omitted fields are not copied from the current invoice; the backend resolves them exactly like in the create flow. The only difference compared to create is that line items may additionally carry the original `uuid` values of existing invoice rows; the create flow ignores them.
       allOf:
         - $ref: '#/components/schemas/InvoiceInput'
         - type: object
@@ -10041,7 +10041,7 @@ components:
         - type: object
           properties:
             items:
-              description: Credit note line items. This field stays required on update. If you send the original `uuid` of an existing line item from the credit note detail response, the backend can preserve warehouse inbound receipt links.
+              description: Credit note line items. This field stays required on update. If you send the original `uuid` of an existing line item from the credit note detail response, the backend can preserve warehouse inbound receipt links. In the create flow, item `uuid` is not part of the request contract and the backend ignores it.
               type: array
               minItems: 1
               maxItems: 100
@@ -10228,7 +10228,7 @@ components:
           maxLength: 3000
           example: Thank you for working with us.
         items:
-          description: Order items. This field is always required. `uuid` and `warehouseAllocations` are not sent for orders.
+          description: Order items. This field is always required. Per-item `uuid` is not part of the request contract; if you send it, the backend ignores it. `warehouseAllocations` are not supported for orders.
           type: array
           minItems: 1
           maxItems: 100
@@ -10248,7 +10248,7 @@ components:
               type: [integer, 'null']
               example: 601
             items:
-              description: Order items. This field is always required during update.
+              description: Order items. This field is always required during update. Per-item `uuid` is not part of the request contract; if you send it, the backend ignores it. `warehouseAllocations` are not supported for orders.
               type: array
               minItems: 1
               maxItems: 100
@@ -10260,8 +10260,8 @@ components:
         `priceListItemId` with sparse overrides for selected fields. `quantity` is always required. If you do not send
         `priceListItemId`, you must send `name`, `unitPrice`, and `vatRate`. `unitId` is optional; when you omit it for a manual
         item, the backend defaults to unit `1` (`piece` / `Unit::Piece`). If you do send `priceListItemId`, the backend can hydrate
-        the name, unit, price, and VAT rate from the price list item and the payload acts only as a sparse override. `uuid` and
-        `warehouseAllocations` are not sent for quotations.
+        the name, unit, price, and VAT rate from the price list item and the payload acts only as a sparse override. `uuid` is not
+        part of the quotation request contract; if you send it, the backend ignores it. `warehouseAllocations` are not supported for quotations.
       type: object
       required: [quantity]
       anyOf:
@@ -10408,7 +10408,7 @@ components:
           maxLength: 3000
           example: Thank you for your interest.
         items:
-          description: Quotation items. This field is always required. `uuid` and `warehouseAllocations` are not sent for quotations.
+          description: Quotation items. This field is always required. Per-item `uuid` is not part of the request contract; if you send it, the backend ignores it. `warehouseAllocations` are not supported for quotations.
           type: array
           minItems: 1
           maxItems: 100
