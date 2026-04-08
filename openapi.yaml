@@ -7975,14 +7975,15 @@ components:
     InvoiceItemInput:
       description: >-
         Payload jednej položky faktúry. Podporované sú tri režimy: manuálna položka, `priceListItemId + quantity`, alebo `priceListItemId`
-        s čiastočnými override poľami. Povinné je vždy `quantity`. Ak nepošlete `priceListItemId`, musíte poslať aj `name`, `unitId`,
-        `unitPrice` a `vatRate`. Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať názov, jednotku,
-        cenu a sadzbu DPH; payload potom slúži len ako sparse override.
+        s čiastočnými override poľami. Povinné je vždy `quantity`. Ak nepošlete `priceListItemId`, musíte poslať aj `name`, `unitPrice`
+        a `vatRate`. `unitId` je voliteľné; ak ho pri manuálnej položke nepošlete, backend použije jednotku `1` (`ks` / `Unit::Piece`).
+        Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať názov, jednotku, cenu a sadzbu DPH; payload potom
+        slúži len ako sparse override.
       type: object
       required: [quantity]
       anyOf:
         - required: [priceListItemId]
-        - required: [name, unitId, unitPrice, vatRate]
+        - required: [name, unitPrice, vatRate]
       properties:
         name:
           description: Názov položky. Pri manuálnej položke je povinný. Pri použití `priceListItemId` môže slúžiť ako override názvu z cenníka.
@@ -8002,7 +8003,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke je povinné. Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
+          description: "Voliteľné ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke, kde ho nepošlete, backend použije jednotku `1` (`ks` / `Unit::Piece`). Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
           type: [integer, 'null']
           example: 1
         quantity:
@@ -8036,11 +8037,6 @@ components:
           type: [string, 'null']
           maxLength: 255
           example: Vernostná zľava
-        uuid:
-          description: Voliteľný UUID identifikátor položky. V public create flowe ho neposielate; backend ho vygeneruje po uložení položky.
-          type: [string, 'null']
-          format: uuid
-          example: 6b1b8c9e-66e6-4fb5-b2db-6d7c7f0f8f19
         priceListItemId:
           description: ID cenníkovej položky. Ak ho pošlete, backend vie z tejto položky hydratovať názov, jednotku, cenu a sadzbu DPH a payload môže slúžiť len ako sparse override.
           type: [integer, 'null']
@@ -10090,13 +10086,14 @@ components:
       description: >-
         Payload jednej položky objednávky. Podporované sú tri režimy: manuálna položka, `priceListItemId + quantity`, alebo
         `priceListItemId` s čiastočnými override poľami. Povinné je vždy `quantity`. Ak nepošlete `priceListItemId`, musíte poslať
-        aj `name`, `unitId`, `unitPrice` a `vatRate`. Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať
-        názov, jednotku, cenu a sadzbu DPH; payload potom slúži len ako sparse override.
+        aj `name`, `unitPrice` a `vatRate`. `unitId` je voliteľné; ak ho pri manuálnej položke nepošlete, backend použije jednotku
+        `1` (`ks` / `Unit::Piece`). Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať názov, jednotku,
+        cenu a sadzbu DPH; payload potom slúži len ako sparse override.
       type: object
       required: [quantity]
       anyOf:
         - required: [priceListItemId]
-        - required: [name, unitId, unitPrice, vatRate]
+        - required: [name, unitPrice, vatRate]
       properties:
         name:
           description: Názov položky. Pri manuálnej položke je povinný. Pri použití `priceListItemId` môže slúžiť ako override názvu z cenníka.
@@ -10116,7 +10113,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke je povinné. Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
+          description: "Voliteľné ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke, kde ho nepošlete, backend použije jednotku `1` (`ks` / `Unit::Piece`). Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
           type: [integer, 'null']
           example: 1
         quantity:
@@ -10275,14 +10272,15 @@ components:
       description: >-
         Payload jednej položky cenovej ponuky. Podporované sú tri režimy: manuálna položka, `priceListItemId + quantity`, alebo
         `priceListItemId` s čiastočnými override poľami. Povinné je vždy `quantity`. Ak nepošlete `priceListItemId`, musíte poslať
-        aj `name`, `unitId`, `unitPrice` a `vatRate`. Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať
-        názov, jednotku, cenu a sadzbu DPH; payload potom slúži len ako sparse override. `uuid` ani `warehouseAllocations` sa pri
-        cenových ponukách neposielajú.
+        aj `name`, `unitPrice` a `vatRate`. `unitId` je voliteľné; ak ho pri manuálnej položke nepošlete, backend použije jednotku
+        `1` (`ks` / `Unit::Piece`). Ak `priceListItemId` pošlete, backend si z cenníkovej položky vie dopočítať názov, jednotku,
+        cenu a sadzbu DPH; payload potom slúži len ako sparse override. `uuid` ani `warehouseAllocations` sa pri cenových ponukách
+        neposielajú.
       type: object
       required: [quantity]
       anyOf:
         - required: [priceListItemId]
-        - required: [name, unitId, unitPrice, vatRate]
+        - required: [name, unitPrice, vatRate]
       properties:
         name:
           description: Názov položky. Pri manuálnej položke je povinný. Pri použití `priceListItemId` môže slúžiť ako override názvu z cenníka.
@@ -10302,7 +10300,7 @@ components:
           maximum: 10000000000000
           example: 100.0
         unitId:
-          description: "ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke je povinné. Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
+          description: "Voliteľné ID jednotky z [referenčnej tabuľky jednotiek](/reference-tables#jednotky). Pri manuálnej položke, kde ho nepošlete, backend použije jednotku `1` (`ks` / `Unit::Piece`). Pri `priceListItemId` môže prepísať jednotku z cenníkovej položky."
           type: [integer, 'null']
           example: 1
         quantity:
