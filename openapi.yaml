@@ -7757,9 +7757,7 @@ components:
           format: float
           example: 12
         stocks:
-          description: >-
-            Rozpis aktuálneho skladového stavu položky po jednotlivých skladoch firmy. Pole sa vracia vždy a je
-            vhodné na cacheovanie pri napájaní externého e-shopu na jeden konkrétny sklad.
+          description: Rozpis aktuálneho skladového stavu položky po jednotlivých skladoch firmy.
           type: array
           items:
             $ref: '#/components/schemas/PriceListItemStock'

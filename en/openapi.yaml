@@ -7758,9 +7758,7 @@ components:
           format: float
           example: 12
         stocks:
-          description: >-
-            Current stock breakdown for the item by warehouse. The array is always returned and is safe to cache
-            when an external storefront works with one selected warehouse.
+          description: Current stock breakdown for the item by warehouse.
           type: array
           items:
             $ref: '#/components/schemas/PriceListItemStock'
