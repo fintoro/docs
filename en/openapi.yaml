@@ -7757,6 +7757,13 @@ components:
           type: number
           format: float
           example: 12
+        stocks:
+          description: >-
+            Current stock breakdown for the item by warehouse. The array is always returned and is safe to cache
+            when an external storefront works with one selected warehouse.
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceListItemStock'
         ean:
           description: Item EAN when it is tracked.
           type: [string, 'null']
@@ -7795,6 +7802,27 @@ components:
           type: [number, 'null']
           format: float
           example: 107.4
+    PriceListItemStock:
+      description: Current stock quantity of one price list item on one company warehouse.
+      type: object
+      properties:
+        warehouseId:
+          description: Internal warehouse ID for this stock slice.
+          type: integer
+          example: 15
+        warehouseName:
+          description: Warehouse name.
+          type: string
+          example: Main warehouse
+        warehouseCode:
+          description: Internal warehouse code.
+          type: string
+          example: MAIN-WH
+        stockQuantity:
+          description: Current quantity for the item on this warehouse after inbound and outbound receipts are applied.
+          type: number
+          format: float
+          example: 7
     PriceListItemCreateInput:
       description: >-
         Payload for creating a price list or warehouse item. The required business fields are always `name`, `unitPrice`, `unitId`,

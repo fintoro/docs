@@ -7756,6 +7756,13 @@ components:
           type: number
           format: float
           example: 12
+        stocks:
+          description: >-
+            Rozpis aktuálneho skladového stavu položky po jednotlivých skladoch firmy. Pole sa vracia vždy a je
+            vhodné na cacheovanie pri napájaní externého e-shopu na jeden konkrétny sklad.
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceListItemStock'
         ean:
           description: EAN kód položky, ak je evidovaný.
           type: [string, 'null']
@@ -7794,6 +7801,27 @@ components:
           type: [number, 'null']
           format: float
           example: 107.4
+    PriceListItemStock:
+      description: Aktuálny skladový stav konkrétnej cenníkovej položky na jednom sklade firmy.
+      type: object
+      properties:
+        warehouseId:
+          description: Interné ID skladu, ku ktorému sa stav viaže.
+          type: integer
+          example: 15
+        warehouseName:
+          description: Názov skladu.
+          type: string
+          example: Hlavný sklad
+        warehouseCode:
+          description: Interný kód skladu.
+          type: string
+          example: MAIN-WH
+        stockQuantity:
+          description: Aktuálne množstvo položky na danom sklade po započítaní príjemok a výdajok.
+          type: number
+          format: float
+          example: 7
     PriceListItemCreateInput:
       description: >-
         Payload pre vytvorenie skladovej alebo cenníkovej položky. Required business polia sú vždy `name`, `unitPrice`, `unitId`
