@@ -7272,19 +7272,6 @@ components:
           description: Interné ID položky skladového dokladu.
           type: integer
           example: 7001
-        direction:
-          description: Smer skladového pohybu reprezentovaný touto položkou.
-          type: string
-          enum: [incoming, outgoing]
-          example: incoming
-        receiptId:
-          description: ID nadradeného skladového dokladu.
-          type: integer
-          example: 901
-        warehouseId:
-          description: ID skladu, na ktorý je položka naviazaná.
-          type: integer
-          example: 301
         priceListItemId:
           description: ID skladovej alebo cenníkovej položky.
           type: integer

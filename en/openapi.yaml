@@ -7273,19 +7273,6 @@ components:
           description: Internal warehouse-document item ID.
           type: integer
           example: 7001
-        direction:
-          description: Stock movement direction represented by this line item.
-          type: string
-          enum: [incoming, outgoing]
-          example: incoming
-        receiptId:
-          description: ID of the parent warehouse document.
-          type: integer
-          example: 901
-        warehouseId:
-          description: ID of the warehouse linked to this line item.
-          type: integer
-          example: 301
         priceListItemId:
           description: ID of the warehouse or price list item.
           type: integer
