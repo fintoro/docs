@@ -312,6 +312,7 @@ Pri delete eventoch rátajte s tým, že detail resource-u už nemusí byť dost
 | `price-list-items.created` | `priceListItem` | Bola vytvorená nová skladová alebo cenníková položka. |
 | `price-list-items.updated` | `priceListItem` | Skladová alebo cenníková položka bola zmenená. |
 | `price-list-items.deleted` | `priceListItem` | Skladová alebo cenníková položka bola zmazaná. |
+| `price-list-items.stock-updated` | `priceListItem` | Zmenil sa skladový stav položky cenníka, napríklad po vytvorení, úprave alebo zmazaní skladovej príjemky či výdajky. |
 
 ### Doklady
 

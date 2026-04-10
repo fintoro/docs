@@ -312,6 +312,7 @@ For delete events, assume that the detail endpoint may no longer return the reso
 | `price-list-items.created` | `priceListItem` | A new price-list or warehouse item was created. |
 | `price-list-items.updated` | `priceListItem` | A price-list or warehouse item was changed. |
 | `price-list-items.deleted` | `priceListItem` | A price-list or warehouse item was deleted. |
+| `price-list-items.stock-updated` | `priceListItem` | The stock level of a price-list item changed, for example after creating, updating, or deleting a warehouse inbound or outbound receipt. |
 
 ### Documents
 

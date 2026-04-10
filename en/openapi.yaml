@@ -88,7 +88,8 @@ tags:
       CRUD operations for price list and warehouse items. These endpoints return the unit as a nested object,
       support filtering by name, EAN, warehouse code, price, and stock, and expose the same business contract that Fintoro uses for
       warehouse tracking, EANs, and purchase prices. Create, update, and delete operations can emit `price-list-items.created`,
-      `price-list-items.updated`, and `price-list-items.deleted` webhook events.
+      `price-list-items.updated`, and `price-list-items.deleted` webhook events. Stock changes caused by warehouse inbound and outbound
+      receipts can emit the `price-list-items.stock-updated` webhook event.
   - name: Document Payments
     description: >-
       Payment records for public documents. This section covers listing payments of one document, creating a new
@@ -5788,6 +5789,7 @@ components:
         - price-list-items.created
         - price-list-items.updated
         - price-list-items.deleted
+        - price-list-items.stock-updated
         - warehouses.created
         - warehouses.updated
         - warehouses.deleted

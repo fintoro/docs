@@ -88,7 +88,8 @@ tags:
       CRUD operácie nad skladovými a cenníkovými položkami. Endpointy vracajú jednotku ako vnorený objekt,
       podporujú filtrovanie podľa názvu, EANu, skladového kódu, ceny a stavu skladu a používajú rovnaký business kontrakt ako
       administrácia Fintoro pre warehouse evidenciu, EAN a nákupné ceny. Create, update a delete operácie môžu emitovať webhook eventy
-      `price-list-items.created`, `price-list-items.updated` a `price-list-items.deleted`.
+      `price-list-items.created`, `price-list-items.updated` a `price-list-items.deleted`. Zmeny skladového stavu vyvolané
+      skladovými príjemkami a výdajkami môžu emitovať webhook event `price-list-items.stock-updated`.
   - name: Úhrady dokladov
     description: >-
       Evidencia úhrad pre podporované doklady. Táto sekcia pokrýva zoznam úhrad konkrétneho dokladu, vytvorenie novej úhrady,
@@ -5788,6 +5789,7 @@ components:
         - price-list-items.created
         - price-list-items.updated
         - price-list-items.deleted
+        - price-list-items.stock-updated
         - warehouses.created
         - warehouses.updated
         - warehouses.deleted
